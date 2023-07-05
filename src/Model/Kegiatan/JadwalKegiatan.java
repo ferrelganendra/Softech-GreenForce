@@ -2,12 +2,13 @@ package Model.Kegiatan;
 
 public class JadwalKegiatan extends Kegiatan{
     private String keperluan;
-    private String ImgSrc;
+    private String imgSrc;
 
     public JadwalKegiatan(String namaKegiatan, String tujuan, String lokasi, String kalender_jam,
-        String keperluan) {
+        String keperluan, String imgSrc) {
         super(namaKegiatan, tujuan, lokasi, kalender_jam);
         this.keperluan = keperluan;
+        this.imgSrc = imgSrc;
     }
 
     public String getKeperluan() {
@@ -19,11 +20,11 @@ public class JadwalKegiatan extends Kegiatan{
     }
 
     public String getImgSrc(){
-        return ImgSrc;
+        return imgSrc;
     }
 
     public void setImgSrc(String imgSrc){
-        this.ImgSrc = imgSrc;
+        this.imgSrc = imgSrc;
     }
 
     

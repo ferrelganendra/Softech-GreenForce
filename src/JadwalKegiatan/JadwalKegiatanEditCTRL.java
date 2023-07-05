@@ -14,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import util.OpenScene;
 import util.XMLctrl;
@@ -22,7 +21,7 @@ import Resource.FileManager;
 
 public class JadwalKegiatanEditCTRL {
     @FXML
-    private VBox ArtikelBox;
+    private VBox Virbox;
 
     @FXML
     private TextField namaKegiatan;
@@ -41,10 +40,6 @@ public class JadwalKegiatanEditCTRL {
 
     @FXML
     private ImageView imgSrc;
-
-    @FXML
-    private Text textJudulArtikel;
-
     
     ArrayList<JadwalKegiatan> jadwalKegiatan = XMLctrl.getJadwalKegiatan();
 
@@ -56,7 +51,7 @@ public class JadwalKegiatanEditCTRL {
         String kJ = kalender_Jam.getText();
         String k = keperluan.getText();
         String t = tujuan.getText();
-        String index = ArtikelBox.getId();
+        String index = Virbox.getId();
 
         jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(nK);
         jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(l);
@@ -93,7 +88,7 @@ public class JadwalKegiatanEditCTRL {
         File selectedFile = fc.showOpenDialog(null);
 
         if (selectedFile != null) {
-            String index = ArtikelBox.getId();
+            String index = Virbox.getId();
             try {
                 URI fileUri = selectedFile.toURI();
                 Image image = new Image(fileUri.toURL().toString());

@@ -15,10 +15,10 @@ import Main.MainPaneCTRL;
 
 public class JadwalCardCTRL{
     @FXML
-    private VBox VBox;
+    private VBox VBoxV;
 
     @FXML
-    private ImageView Image;
+    private ImageView imageABU;
 
     @FXML
     private Label namaKegiatan;
@@ -39,7 +39,7 @@ public class JadwalCardCTRL{
     private Button Edit;
 
     public ImageView getImage() {
-        return Image;
+        return imageABU;
     }
 
     public Label getKegiatan(){
@@ -63,15 +63,15 @@ public class JadwalCardCTRL{
     }
 
     public VBox getVBox() {
-        return VBox;
+        return VBoxV;
     }
 
     public void setVBox(VBox vBox) {
-        VBox = vBox;
+        VBoxV = vBox;
     }
 
-    public void setImage(ImageView Image) {
-        this.Image = Image;
+    public void setImage(ImageView imageaBU) {
+        this.imageABU = imageaBU;
     }
 
     public void setKegiatan(Label kegiatan){
@@ -99,21 +99,21 @@ public class JadwalCardCTRL{
         // artikelImage.setImage(image);
         String imagePath = jadwalKegiatan.getImgSrc();
         String fullImagePath = getClass().getResource("/Resource/" + imagePath).toExternalForm();
-        Image image = new Image(fullImagePath);
-        Image.setImage(image);
+        Image imageSER = new Image(fullImagePath);
+        imageABU.setImage(imageSER);
         namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
         lokasi.setText(jadwalKegiatan.getLokasi());
         kalender_Jam.setText(jadwalKegiatan.getKalenderjam());
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
-        VBox.setStyle("-fx-background-radius: 15;" + "fx-effect:dropShadown(three-pass-box, rgba(0,0,0,0), 10, 0, 0, 10);");
-        Image.setStyle("-fx-background-radius: 15;");
+        VBoxV.setStyle("-fx-background-radius: 15;" + "fx-effect:dropShadown(three-pass-box, rgba(0,0,0,0), 10, 0, 0, 10);");
+        imageABU.setStyle("-fx-background-radius: 15;");
     }
 
     @FXML
     void keArtikel(MouseEvent event) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/JadwalKegiatan");
+        Pane halaman = object.getPane("/JadwalKegiatan/JadwalKegiatanEdit");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 }
