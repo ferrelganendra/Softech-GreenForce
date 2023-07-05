@@ -24,9 +24,9 @@ public class JadwalKegiatanCTRL {
     private TextField indexDelete;
 
     @FXML
-    private VBox VBoxJadwal;
+    private VBox vBoxJadwal;
 
-    private VBox cardBox;
+    private VBox CardBox;
 
     private Map<String, VBox> cardBoxMap = new HashMap<>();
 
@@ -37,14 +37,14 @@ public class JadwalKegiatanCTRL {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/JadwalKegiatan/JadwalKegiatanAdd");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-    }
+    };
 
     @FXML
     void hapusArtikel(ActionEvent event) {
         String targetId = indexDelete.getText();
         VBox targetCardBox = cardBoxMap.get(targetId);
         if (targetCardBox != null) {
-            VBoxJadwal.getChildren().remove(targetCardBox);
+            vBoxJadwal.getChildren().remove(targetCardBox);
         }
         JadwalKegiatan artikelToRemove = jadwalKegiatanGreenForce.get(Integer.valueOf(indexDelete.getText()));
         jadwalKegiatanGreenForce.remove(artikelToRemove);
@@ -56,25 +56,25 @@ public class JadwalKegiatanCTRL {
     public void initialize() throws IOException {
         for (int i = 0; i < jadwalKegiatanGreenForce.size(); i++) {
             // Mengload card artikel
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/JadwalKegiatan/JadwalCard.fxml"));
-            cardBox = fxmlLoader.load();
-            JadwalCardCTRL cardCTRL = fxmlLoader.getController();
+            FXMLLoader cardloader = new FXMLLoader();
+            cardloader.setLocation(getClass().getResource("/JadwalKegiatan/JadwalCard.fxml"));
+            CardBox = cardloader.load();
+            JadwalCardCTRL cardCTRL = cardloader.getController();
             cardCTRL.setData(jadwalKegiatanGreenForce.get(i));
-            cardBox.setId("" + i);
-            cardBoxMap.put(cardBox.getId(), cardBox);
-            VBoxJadwal.getChildren().add(cardBox);
+            CardBox.setId("" + i);
+            cardBoxMap.put(CardBox.getId(), CardBox);
+            vBoxJadwal.getChildren().add(CardBox);
 
             // Megload page untuk mengedit artikel
             FXMLLoader jadwalKegiatanLoader = new FXMLLoader();
-            jadwalKegiatanLoader.setLocation(getClass().getResource("/Home/Artikel/ArtikelEdit.fxml"));
+            jadwalKegiatanLoader.setLocation(getClass().getResource("/JadwalKegiatan/JadwalKegiatanEdit.fxml"));
             VBox jadwalKegiatan = jadwalKegiatanLoader.load();
             JadwalKegiatanEditCTRL jadwalKegiatanEditCTRL = jadwalKegiatanLoader.getController();
             jadwalKegiatan.setId("" + i);
             jadwalKegiatanEditCTRL.setData(jadwalKegiatanGreenForce.get(i));
 
-            if (VBoxJadwal.getChildren().get(i).equals(cardBox)) {
-                cardBox.setOnMouseClicked(event -> {
+            if (vBoxJadwal.getChildren().get(i).equals(CardBox)) {
+                CardBox.setOnMouseClicked(event -> {
                     MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
                 });
             }

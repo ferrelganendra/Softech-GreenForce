@@ -31,7 +31,7 @@ public class JadwalKegiatanAddCTRL{
     private TextField lokasi;
 
     @FXML
-    private TextField kalender_Jam;
+    private TextField kalenderJam;
 
     @FXML
     private TextField keperluan;
@@ -45,8 +45,8 @@ public class JadwalKegiatanAddCTRL{
     @FXML
     private Button tambah;
 
-    ArrayList<JadwalKegiatan> JadwalKegiatanList = XMLctrl.getJadwalKegiatan();
-    JadwalKegiatan JadwalKegiatan = new JadwalKegiatan("", "", "", "", "");
+    ArrayList<JadwalKegiatan> jadwalKegiatanList = XMLctrl.getJadwalKegiatan();
+    JadwalKegiatan jadwalKegiatan = new JadwalKegiatan(null, null, null, null, null, null);
 
     @FXML
     void pilihGambar(ActionEvent event) {
@@ -63,7 +63,7 @@ public class JadwalKegiatanAddCTRL{
                 Image image = new Image(fileUri.toURL().toString());
                 FileManager.saveImageToResourceFolder(selectedFile);
                 String fileName = selectedFile.getName();
-                JadwalKegiatan.setImgSrc("../Resource/" + fileName);
+                jadwalKegiatan.setImgSrc("../Resource/" + fileName);
                 imgSrc.setImage(image);
             } catch (MalformedURLException e) {
                 System.out.println("Error loading image: " + e.getMessage());
@@ -75,20 +75,24 @@ public class JadwalKegiatanAddCTRL{
 
     @FXML
     void tambah(ActionEvent event) {
-        JadwalKegiatan.setNamaKegiatan(namaKegiatan.getText());
-        JadwalKegiatan.setLokasi(lokasi.getText());
-        JadwalKegiatan.setKalender_jam(kalender_Jam.getText());
-        JadwalKegiatan.setKeperluan(keperluan.getText());
-        JadwalKegiatan.setTujuan(tujuan.getText());
-        JadwalKegiatanList.add(0, JadwalKegiatan);
-        XMLctrl.saveJadwalKegiatan(JadwalKegiatanList);
-        try {
-            OpenScene object = new OpenScene();
-            Pane halaman = object.getPane("/View/JadwalKegiatan");
-            MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-        } catch (Exception e) {
-            ShowAlert.showAlert("Error", "Warning", null);
-            e.getMessage();
+        jadwalKegiatan.setNamaKegiatan(namaKegiatan.getText());
+        jadwalKegiatan.setLokasi(lokasi.getText());
+        jadwalKegiatan.setKalenderjam(kalenderJam.getText());
+        jadwalKegiatan.setKeperluan(keperluan.getText());
+        jadwalKegiatan.setTujuan(tujuan.getText());
+        jadwalKegiatanList.add(0, jadwalKegiatan);
+        if (imgSrc.getImage() != null) {
+            XMLctrl.saveJadwalKegiatan(jadwalKegiatanList);
+            try {
+                OpenScene object = new OpenScene();
+                Pane halaman = object.getPane("/View/Beranda");
+                MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+            } catch (Exception e) {
+                ShowAlert.showAlert("Error", "Warning", "Halaman tidak ditemukan");
+                e.getMessage();
+            }
+        } else {
+            ShowAlert.showAlert("Gambar tidak ditemukan", "Isi gambar terlebih dahulu", null);
         }
 
     }
