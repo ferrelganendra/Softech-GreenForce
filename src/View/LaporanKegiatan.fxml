@@ -26,26 +26,26 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <HBox prefHeight="50.0" prefWidth="365.0">
+                        <HBox prefHeight="50.0" prefWidth="296.0">
                            <HBox.margin>
-                              <Insets left="390.0" />
+                              <Insets left="415.0" />
                            </HBox.margin>
                            <children>
+                              <TextField prefHeight="25.0" prefWidth="48.0" promptText="Index">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </TextField>
                               <Button mnemonicParsing="false" onAction="#addArtikel" prefHeight="25.0" prefWidth="103.0" text="Add">
                                  <HBox.margin>
-                                    <Insets left="20.0" top="10.0" />
+                                    <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </Button>
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Delete">
                                  <HBox.margin>
-                                    <Insets left="20.0" top="10.0" />
+                                    <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <TextField prefHeight="25.0" prefWidth="48.0" promptText="Index">
-                                 <HBox.margin>
-                                    <Insets left="10.0" top="10.0" />
-                                 </HBox.margin>
-                              </TextField>
                            </children>
                         </HBox>
                      </children>
