@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import Home.Artikel.ACardCTRL;
 import Home.Artikel.ArtikelEditCTRL;
@@ -12,6 +13,7 @@ import Home.Berita.BeritaEdit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -67,11 +69,15 @@ public class BerandaCTRL {
         String targetId = indexDelete.getText();
         HBox targetCardBox = cardBoxMap.get(targetId);
         if (targetCardBox != null) {
-            // ShowAlert.showConfirmation("Konfirmasi", "Apakah anda yakin akan menghapus Artikel ini?", null);
-            HBoxArtikel.getChildren().remove(targetCardBox);
-            Artikel artikelToRemove = artikelGreenForce.get(Integer.valueOf(indexDelete.getText()));
-            artikelGreenForce.remove(artikelToRemove);
-            XMLctrl.saveArtikel(artikelGreenForce);
+            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
+                    "Apakah Anda yakin akan menghapus Artikel ini?");
+            if (konfirmasi) {
+                HBoxArtikel.getChildren().remove(targetCardBox);
+                Artikel artikelToRemove = artikelGreenForce.get(Integer.valueOf(indexDelete.getText()));
+                artikelGreenForce.remove(artikelToRemove);
+                XMLctrl.saveArtikel(artikelGreenForce);
+            }
+
         } else {
             ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
         }
@@ -83,11 +89,14 @@ public class BerandaCTRL {
         String targetId = indexDelete1.getText();
         HBox targetCardBox = cardBoxMap2.get(targetId);
         if (targetCardBox != null) {
-            // ShowAlert.showConfirmation("Konfirmasi", "Apakah anda yakin akan menghapus Artikel ini?", null);
-            HBoxBerita.getChildren().remove(targetCardBox);
-            Berita beritaToRemove = beritaGreenForce.get(Integer.valueOf(indexDelete1.getText()));
-            beritaGreenForce.remove(beritaToRemove);
-            XMLctrl.saveBerita(beritaGreenForce);
+            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
+                    "Apakah Anda yakin akan menghapus Artikel ini?");
+            if (konfirmasi) {
+                HBoxBerita.getChildren().remove(targetCardBox);
+                Berita beritaToRemove = beritaGreenForce.get(Integer.valueOf(indexDelete1.getText()));
+                beritaGreenForce.remove(beritaToRemove);
+                XMLctrl.saveBerita(beritaGreenForce);
+            }
         } else {
             ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
         }
