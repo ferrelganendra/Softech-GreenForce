@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignUpCTRL">
+   <children>
+      <ScrollPane prefHeight="558.0" prefWidth="926.0" style="-fx-background-color: ececec;" stylesheets="@../scrollpane.css">
+         <content>
+            <VBox prefHeight="543.0" prefWidth="920.0" style="-fx-background-color: f5f5f5;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
+               <children>
+                  <BorderPane prefHeight="547.0" prefWidth="920.0">
+                     <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="nameField" alignment="CENTER" layoutX="335.0" layoutY="202.0" prefHeight="35.0" prefWidth="250.0" promptText="Name" />
+                              <TextField fx:id="emailField" alignment="CENTER" layoutX="335.0" layoutY="246.0" prefHeight="35.0" prefWidth="250.0" promptText="Email" />
+                              <Button fx:id="SignUp" layoutX="335.0" layoutY="418.0" mnemonicParsing="false" onAction="#SignUpAddAccount" prefHeight="35.0" prefWidth="250.0" text="SignUp" />
+                              <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="335.0" layoutY="314.0" prefHeight="35.0" prefWidth="250.0" promptText="Password" />
+                              <PasswordField fx:id="confirmPasswordField" alignment="CENTER" layoutX="335.0" layoutY="358.0" prefHeight="35.0" prefWidth="250.0" promptText="Confirm Password" />
+                              <ImageView fitHeight="28.0" fitWidth="27.0" layoutX="343.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resource/BlackP.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="28.0" fitWidth="27.0" layoutX="342.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resource/mi_lock.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="28.0" fitWidth="27.0" layoutX="342.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resource/mi_lock.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="28.0" fitWidth="26.0" layoutX="343.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Resource/mi_email.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#0e7b45" layoutX="365.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Create An Account">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="39.0" fitWidth="50.0" layoutX="440.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../bin/Resource/LogoPNG%20Hijau.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children></VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

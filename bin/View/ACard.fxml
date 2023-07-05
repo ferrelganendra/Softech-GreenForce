@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="HBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#keArtikel" prefHeight="155.0" prefWidth="276.0" style="-fx-background-color: ff6666;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ACardCTRL">
+   <children>
+      <StackPane prefHeight="155.0" prefWidth="276.0">
+         <children>
+            <ImageView fx:id="artikelImage" fitHeight="155.0" fitWidth="276.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+            <Rectangle fx:id="kotakText" fill="WHITE" height="49.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="280.0">
+               <StackPane.margin>
+                  <Insets right="1.0" top="65.0" />
+               </StackPane.margin>
+            </Rectangle>
+            <Text fx:id="judulArtikel" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Menggugat Sampah Plastik: Misi Pembersihan Lingkungan Global" textAlignment="CENTER" visible="false" wrappingWidth="276.9830722808838">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="66.0" />
+               </StackPane.margin>
+            </Text>
+         </children>
+      </StackPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+</HBox>

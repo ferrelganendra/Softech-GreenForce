@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.JadwalKegiatanEditCTRL">
+   <children>
+      <ScrollPane prefHeight="559.0" prefWidth="914.0">
+         <content>
+            <HBox prefHeight="548.0" prefWidth="905.0">
+               <children>
+                  <ScrollPane prefHeight="563.0" prefWidth="658.0">
+                     <content>
+                        <VBox prefHeight="776.0" prefWidth="633.0">
+                           <children>
+                              <TableView fx:id="TableView" prefHeight="549.0" prefWidth="633.0">
+                                <columns>
+                                  <TableColumn fx:id="kolomKalender" prefWidth="75.0" text="Kalender" />
+                                  <TableColumn fx:id="kolomKegiatan" prefWidth="122.0" text="Kegiatan" />
+                                    <TableColumn fx:id="kolomJam" prefWidth="41.0" text="Jam" />
+                                    <TableColumn fx:id="kolomLokasi" prefWidth="103.0" text="Lokasi" />
+                                    <TableColumn fx:id="kolomKeperluan" prefWidth="112.0" text="Keperluan" />
+                                    <TableColumn fx:id="kolomTujuan" prefWidth="179.0" text="Tujuan" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <VBox prefHeight="548.0" prefWidth="247.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kalender">
+                           <VBox.margin>
+                              <Insets left="10.0" top="30.0" />
+                           </VBox.margin>
+                        </Text>
+                        <DatePicker>
+                           <VBox.margin>
+                              <Insets left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </DatePicker>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kegiatan">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="text1">
+                           <VBox.margin>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jam">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="text2">
+                           <VBox.margin>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lokasi">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="text3">
+                           <VBox.margin>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Keperluan">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="text4">
+                           <VBox.margin>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tujuan">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="text5">
+                           <VBox.margin>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <HBox prefHeight="114.0" prefWidth="265.0">
+                           <children>
+                              <Button fx:id="Tambah" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="26.0" prefWidth="86.0" text="Tambah">
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="Hapus" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Hapus">
+                                 <HBox.margin>
+                                    <Insets left="80.0" top="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="10.0" top="25.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

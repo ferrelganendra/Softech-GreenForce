@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="ArtikelBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home.Artikel.ArtikelEditCTRL">
+   <children>
+      <HBox prefHeight="640.0" prefWidth="914.0">
+         <children>
+            <VBox prefHeight="558.0" prefWidth="646.0" style="-fx-background-color: f5f5f5;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
+               <children>
+                  <VBox prefHeight="52.0" prefWidth="244.0" style="-fx-background-color: ffffff;">
+                     <children>
+                        <Text fx:id="textJudulArtikel" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="585.9830722808838">
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="16.0" right="16.0" top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <TextArea fx:id="textIsiArtikel" prefHeight="476.0" prefWidth="623.0" text="&#10;" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+            <VBox prefHeight="558.0" prefWidth="336.0" style="-fx-background-color: f9f9f9;">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="303.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#kembaliKeBeranda" prefHeight="23.0" prefWidth="71.0" text="Kembali">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></HBox>
+                  <Label text="Edit judul">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tfEditJudul" prefHeight="26.0" prefWidth="262.0"> 
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#editJudul" prefHeight="30.0" prefWidth="297.0" text="Edit">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label text="Edit Image Cover">
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fx:id="imgSrc" fitHeight="150.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" onAction="#editImage" prefHeight="30.0" prefWidth="290.0" text="Edit">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#simpanEditArtikel" prefHeight="30.0" prefWidth="301.0" text="Selesai">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
