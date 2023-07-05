@@ -1,4 +1,4 @@
-package View;
+package Login;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class SignUpCTRL {
                     "Akun dengan nama " + name + " dan email " + email + " telah berhasil dibuat.");
             clearFields();
             OpenScene object = new OpenScene();
-            Pane halaman = object.getPane("/View/Login");
+            Pane halaman = object.getPane("/Login/Login");
             MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
         }
     }

@@ -41,7 +41,7 @@ public class MainPaneCTRL implements Initializable {
     @FXML
     void keAkun(MouseEvent event) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/Login");
+        Pane halaman = object.getPane("/Login/Login");
         mainPane.setCenter(halaman);
     }
 
