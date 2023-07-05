@@ -6,30 +6,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import Home.Artikel.ACardCTRL;
-import Home.Artikel.ArtikelEditCTRL;
+import Home.Artikel.ArtikelViewCTRL;
 import Home.Berita.BCard;
-import Home.Berita.BeritaEdit;
-import javafx.event.ActionEvent;
+import Home.Berita.BeritaView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import util.OpenScene;
-import util.ShowAlert;
 import util.XMLctrl;
 import Model.Artikel.Artikel;
 import Model.Artikel.Berita;
 import Main.MainPaneCTRL;
 
-public class BerandaCTRL {
-
-    @FXML
-    private TextField indexDelete;
-
-    @FXML
-    private TextField indexDelete1;
+public class UserBerandaCTRL {
 
     @FXML
     private HBox HBoxBerita;
@@ -47,59 +36,6 @@ public class BerandaCTRL {
     ArrayList<Artikel> artikelGreenForce = XMLctrl.getArtikel();
 
     ArrayList<Berita> beritaGreenForce = XMLctrl.getBerita();
-
-    @FXML
-    void addArtikel(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/Home/Artikel/AddArtikel");
-        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-    }
-
-    @FXML
-    void addBerita(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/Home/Berita/AddBerita");
-        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-    }
-
-    @FXML
-    void hapusArtikel(ActionEvent event) {
-        String targetId = indexDelete.getText();
-        HBox targetCardBox = cardBoxMap.get(targetId);
-        if (targetCardBox != null) {
-            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
-                    "Apakah Anda yakin akan menghapus Artikel ini?");
-            if (konfirmasi) {
-                HBoxArtikel.getChildren().remove(targetCardBox);
-                Artikel artikelToRemove = artikelGreenForce.get(Integer.valueOf(indexDelete.getText()));
-                artikelGreenForce.remove(artikelToRemove);
-                XMLctrl.saveArtikel(artikelGreenForce);
-            }
-
-        } else {
-            ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
-        }
-        indexDelete.setText("");
-    }
-
-    @FXML
-    void hapusBerita(ActionEvent event) {
-        String targetId = indexDelete1.getText();
-        HBox targetCardBox = cardBoxMap2.get(targetId);
-        if (targetCardBox != null) {
-            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
-                    "Apakah Anda yakin akan menghapus Artikel ini?");
-            if (konfirmasi) {
-                HBoxBerita.getChildren().remove(targetCardBox);
-                Berita beritaToRemove = beritaGreenForce.get(Integer.valueOf(indexDelete1.getText()));
-                beritaGreenForce.remove(beritaToRemove);
-                XMLctrl.saveBerita(beritaGreenForce);
-            }
-        } else {
-            ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
-        }
-        indexDelete1.setText("");
-    }
 
     @FXML
     public void initialize() throws IOException {
@@ -127,13 +63,13 @@ public class BerandaCTRL {
                 cardCTRL.getKotakText().setVisible(true);
             });
 
-            // Mengload page untuk mengedit artikel
+            // Mengload page untuk melihat artikel
             FXMLLoader artikelLoader = new FXMLLoader();
-            artikelLoader.setLocation(getClass().getResource("/Home/Artikel/ArtikelEdit.fxml"));
-            VBox artikel = artikelLoader.load();
-            ArtikelEditCTRL artikelEditCTRL = artikelLoader.getController();
+            artikelLoader.setLocation(getClass().getResource("/Home/Artikel/ArtikelView.fxml"));
+            VBox artikel = artikelLoader.load(); //error
+            ArtikelViewCTRL artikelView = artikelLoader.getController();
             artikel.setId("" + i);
-            artikelEditCTRL.setData(artikelGreenForce.get(i));
+            artikelView.setData(artikelGreenForce.get(i));
 
             if (HBoxArtikel.getChildren().get(i).equals(cardBox)) {
                 cardBox.setOnMouseClicked(event -> {
@@ -168,11 +104,11 @@ public class BerandaCTRL {
 
             // Mengload page untuk mengedit berita
             FXMLLoader beritaLoader = new FXMLLoader();
-            beritaLoader.setLocation(getClass().getResource("/Home/Berita/BeritaEdit.fxml"));
+            beritaLoader.setLocation(getClass().getResource("/Home/Berita/BeritaView.fxml"));
             VBox berita = beritaLoader.load();
-            BeritaEdit BeritaEdit = beritaLoader.getController();
+            BeritaView BeritaView = beritaLoader.getController();
             berita.setId("" + i);
-            BeritaEdit.setData(beritaGreenForce.get(i));
+            BeritaView.setData(beritaGreenForce.get(i));
 
             if (HBoxBerita.getChildren().get(i).equals(cardBox2)) {
                 cardBox2.setOnMouseClicked(event -> {

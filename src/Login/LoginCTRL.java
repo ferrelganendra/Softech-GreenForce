@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import util.OpenScene;
 import util.ShowAlert;
+import util.VerifyLogin;
 import util.XMLctrl;
 import Model.Account.Komunitas;
 import Model.Account.Partisipan;
@@ -60,9 +61,10 @@ public class LoginCTRL implements Initializable {
             user1 = user.get(i);
             if (user1 != null && user1.getEmail().equals(password) && user1.getUsername().equals(username)) {
                 OpenScene object = new OpenScene();
-                Pane halaman = object.getPane("/View/Beranda");
+                Pane halaman = object.getPane("/View/UserBeranda");
                 MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
                 ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
+                VerifyLogin.getInstance().setUserVerified(true);
             }
         }
         if (!(user1 != null && user1.getEmail().equals(password) && user1.getUsername().equals(username))) {
@@ -83,6 +85,7 @@ public class LoginCTRL implements Initializable {
                 Pane halaman = object.getPane("/View/Beranda");
                 MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
                 ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
+                VerifyLogin.getInstance().setAdminVerified(true);
             }
         }
         if (!(adm != null && adm.getEmail().equals(password) && adm.getUsername().equals(username))) {

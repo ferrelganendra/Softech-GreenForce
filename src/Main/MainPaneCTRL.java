@@ -15,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import util.OpenScene;
+import util.VerifyLogin;
 
 public class MainPaneCTRL implements Initializable {
 
@@ -61,18 +62,35 @@ public class MainPaneCTRL implements Initializable {
 
     @FXML
     void keBeranda(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/Beranda");
-        mainPane.setCenter(halaman);
+        if (VerifyLogin.getInstance().isVerifiedAdmin()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/Beranda");
+            mainPane.setCenter(halaman);
+        } else {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            mainPane.setCenter(halaman);
+        }
+        // } else if (VerifyLogin.getInstance().isVerifiedUser()) {
+        //     OpenScene object = new OpenScene();
+        //     Pane halaman = object.getPane("/View/UserBeranda");
+        //     mainPane.setCenter(halaman);
+        // } else if(!(VerifyLogin.getInstance().isVerifiedUser())) {
+        //     OpenScene object = new OpenScene();
+        //     Pane halaman = object.getPane("/View/UserBeranda");
+        //     mainPane.setCenter(halaman);
+        // } else {
+        //     OpenScene object = new OpenScene();
+        //     Pane halaman = object.getPane("/View/UserBeranda");
+        //     mainPane.setCenter(halaman);
+        // }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/Beranda");
+        Pane halaman = object.getPane("/View/UserBeranda");
         mainPane.setCenter(halaman);
     }
-
-    
 
 }

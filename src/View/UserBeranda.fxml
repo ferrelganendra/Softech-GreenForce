@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.UserBerandaCTRL">
+   <children>
+      <ScrollPane prefHeight="558.0" prefWidth="926.0" style="-fx-background-color: ececec;" stylesheets="@../scrollpane.css">
+         <content>
+            <VBox prefHeight="855.0" prefWidth="914.0" style="-fx-background-color: f5f5f5;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
+               <children>
+                  <ImageView fitHeight="159.0" fitWidth="889.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="15.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../Resource/Pembuka.png" />
+                     </image>
+                  </ImageView>
+                  <HBox prefHeight="20.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="207.0" text="Artikel GreenForce" textFill="#545454">
+                           <font>
+                              <Font name="Roboto Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="889.0" stylesheets="@../scrollpane.css">
+                     <VBox.margin>
+                        <Insets left="10.0" right="15.0" />
+                     </VBox.margin>
+                     <content>
+                        <HBox fx:id="HBoxArtikel" alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="184.0" prefWidth="887.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../scrollpane.css">
+                           <padding>
+                              <Insets bottom="3.0" left="20.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                     <styleClass>
+                        <String fx:value="backgroundNone" />
+                        <String fx:value="borderRad" />
+                     </styleClass>
+                  </ScrollPane>
+                  <HBox prefHeight="20.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="181.0" text="Seputar Lingkungan" textFill="#545454">
+                           <font>
+                              <Font name="Roboto Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="889.0" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
+                     <content>
+                        <HBox fx:id="HBoxBerita" prefHeight="184.0" prefWidth="887.0" spacing="10.0" styleClass="backgroundWhite" stylesheets="@../scrollpane.css">
+                           <padding>
+                              <Insets bottom="3.0" left="20.0" top="13.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                     <VBox.margin>
+                        <Insets left="10.0" right="15.0" />
+                     </VBox.margin>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
