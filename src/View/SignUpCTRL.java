@@ -41,15 +41,15 @@ public class SignUpCTRL {
         String confirmPassword = confirmPasswordField.getText();
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            ShowAlert.showAlert("Peringatan", "Isian Kosong", "Semua isian harus diisi.");
+            ShowAlert.showAlert1("Peringatan", "Isian Kosong", "Semua isian harus diisi.");
         } else if (!password.equals(confirmPassword)) {
-            ShowAlert.showAlert("Peringatan", "Password Tidak Cocok", "Password dan konfirmasi password tidak cocok.");
+            ShowAlert.showAlert1("Peringatan", "Password Tidak Cocok", "Password dan konfirmasi password tidak cocok.");
         } else {
             Partisipan newAccount = new Partisipan(name, confirmPassword, email);
             userBaru.add(newAccount);
             XMLctrl.saveUser(userBaru);
 
-            ShowAlert.showAlert("Sukses", "Akun Berhasil Dibuat",
+            ShowAlert.showAlert1("Sukses", "Akun Berhasil Dibuat",
                     "Akun dengan nama " + name + " dan email " + email + " telah berhasil dibuat.");
             clearFields();
             OpenScene object = new OpenScene();
