@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import DataBase.AkunStorage;
 import Main.MainPaneCTRL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import util.OpenScene;
 import util.ShowAlert;
-import Model.Account.Akun;
+import util.XMLctrl;
 import Model.Account.Komunitas;
 import Model.Account.Partisipan;
 
@@ -42,16 +41,8 @@ public class LoginCTRL implements Initializable {
     @FXML
     private TextField usernameField;
 
-    private ArrayList<Komunitas> komunitas = new ArrayList<>(adminKomunitas());
-    private ArrayList<Partisipan> partisipan = new ArrayList<>(partisipanUsers());
-
-    public ArrayList<Komunitas> getKomunitas() {
-        return komunitas;
-    }
-
-    public ArrayList<Partisipan> getPartisipan() {
-        return partisipan;
-    }
+    ArrayList<Partisipan> user = XMLctrl.getUser();
+    ArrayList<Komunitas> admin = XMLctrl.getAdmin();
 
     @FXML
     void createAccount(ActionEvent event) {
@@ -64,18 +55,18 @@ public class LoginCTRL implements Initializable {
     private void loginButtonClicked() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
+        Partisipan user1 = null;
 
-        Akun account = AkunStorage.getAccountByUsername(username);
-
-        if (account != null && account.getPassword().equals(password)) {
-            if (account != null && account.getPassword().equals(password)) {
-            OpenScene object = new OpenScene();
-            Pane halaman = object.getPane("/View/Beranda");
-            MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-            ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
-        } else {
-            ShowAlert.showAlert("Kesalahan", "Login Gagal", "Username atau password salah.");
-        }
+        for (int i = 0; i < user.size(); i++) {
+            user1 = user.get(i);
+            if (user1 != null && user1.getPassword().equals(password) && user1.getUsername().equals(username)) {
+                OpenScene object = new OpenScene();
+                Pane halaman = object.getPane("/View/Beranda");
+                MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+                ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
+            } else {
+                ShowAlert.showAlert("Kesalahan", "Login Gagal", "Username atau password salah.");
+            }
         }
     }
 
@@ -83,38 +74,19 @@ public class LoginCTRL implements Initializable {
     private void loginAsAdminClicked() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
+        Komunitas adm = null;
 
-        if (username.equals(komunitas.get(0).getUsername()) && password.equals(komunitas.get(0).getPassword())) {
-            OpenScene object = new OpenScene();
-            Pane halaman = object.getPane("/View/Beranda");
-            MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-        } else {
-            ShowAlert.showAlert("Kesalahan", "Login Gagal", "Username atau password salah.");
+        for (int i = 0; i < admin.size(); i++) {
+            adm = admin.get(i);
+            if (adm != null && adm.getPassword().equals(password) && adm.getUsername().equals(username)) {
+                OpenScene object = new OpenScene();
+                Pane halaman = object.getPane("/View/Beranda");
+                MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+                ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
+            } else {
+                ShowAlert.showAlert("Kesalahan", "Login Gagal", "Username atau password salah.");
+            }
         }
-    }
-
-    // Akun admin komunitas
-    public ArrayList<Komunitas> adminKomunitas() {
-        ArrayList<Komunitas> admin = new ArrayList<>();
-        Komunitas admin1 = new Komunitas(null, null, null);
-        admin1.setEmail("admin1@gmail.com");
-        admin1.setUsername("admin");
-        admin1.setPassword("admin123");
-        admin.add(admin1);
-
-        return admin;
-    }
-
-    // Akun admin partisipan
-    public ArrayList<Partisipan> partisipanUsers() {
-        ArrayList<Partisipan> partisipan = new ArrayList<>();
-        Partisipan partisipan1 = new Partisipan(null, null, null);
-        partisipan1.setEmail("admin1@gmail.com");
-        partisipan1.setUsername("admin");
-        partisipan1.setPassword("admin123");
-        partisipan.add(partisipan1);
-
-        return partisipan;
     }
 
     @Override

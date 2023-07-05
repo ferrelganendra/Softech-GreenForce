@@ -1,24 +1,42 @@
 package DataBase;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-import Model.Account.Akun;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+
+import Model.Account.Partisipan;
 
 public class AkunStorage {
 
-    private static List<Akun> accountList = new ArrayList<>();
+    public static void main(String[] args) {
+        ArrayList<Partisipan> accountList = new ArrayList<>();
 
-    public static void addAccount(Akun account) {
-        accountList.add(account);
-    }
+        Partisipan user = new Partisipan("User", "User123", "user0@gmail.com");
 
-    public static Akun getAccountByUsername(String username) {
-        for (Akun account : accountList) {
-            if (account.getUsername().equals(username)) {
-                return account;
+        accountList.add(user);
+
+        XStream xstream = new XStream(new StaxDriver());
+        String xmlUser = xstream.toXML(accountList);
+        FileOutputStream coba = null;
+
+        try {
+            coba = new FileOutputStream("src\\DataBase\\UserData.xml");
+            byte[] bytes = xmlUser.getBytes("UTF-8");
+            coba.write(bytes);
+        } catch (Exception e) {
+            System.out.println("WARNING: " + e.getMessage());
+        } finally {
+            if (coba != null) {
+                try {
+                    coba.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-        return null;
     }
+
 }

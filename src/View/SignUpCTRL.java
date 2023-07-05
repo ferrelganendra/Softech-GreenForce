@@ -1,9 +1,10 @@
 package View;
 
 import java.io.IOException;
-import DataBase.AkunStorage;
+import java.util.ArrayList;
+
 import Main.MainPaneCTRL;
-import Model.Account.Akun;
+import Model.Account.Partisipan;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import util.OpenScene;
 import util.ShowAlert;
+import util.XMLctrl;
 
 public class SignUpCTRL {
 
@@ -29,6 +31,8 @@ public class SignUpCTRL {
     @FXML
     private TextField nameField;
 
+    ArrayList<Partisipan> userBaru = XMLctrl.getUser();
+
     @FXML
     private void SignUpAddAccount() throws IOException {
         String name = nameField.getText();
@@ -41,8 +45,9 @@ public class SignUpCTRL {
         } else if (!password.equals(confirmPassword)) {
             ShowAlert.showAlert("Peringatan", "Password Tidak Cocok", "Password dan konfirmasi password tidak cocok.");
         } else {
-            Akun newAccount = new Akun(name, email, password);
-            AkunStorage.addAccount(newAccount);
+            Partisipan newAccount = new Partisipan(name, confirmPassword, email);
+            userBaru.add(newAccount);
+            XMLctrl.saveUser(userBaru);
 
             ShowAlert.showAlert("Sukses", "Akun Berhasil Dibuat",
                     "Akun dengan nama " + name + " dan email " + email + " telah berhasil dibuat.");

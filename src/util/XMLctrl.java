@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import Model.Account.Komunitas;
+import Model.Account.Partisipan;
 import Model.Artikel.Artikel;
 import Model.Artikel.Berita;
 import Model.Kegiatan.JadwalKegiatan;
@@ -147,6 +150,74 @@ public class XMLctrl {
                 }
             }
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static ArrayList<Partisipan> getUser() {
+        ArrayList<Partisipan> partisipanArrayList = new ArrayList<>();
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.addPermission(AnyTypePermission.ANY);
+        FileInputStream userInput = null;
+        try {
+            userInput = new FileInputStream("src\\DataBase\\UserData.xml");
+            partisipanArrayList = (ArrayList<Partisipan>) xstream.fromXML(userInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (userInput != null) {
+                try {
+                    userInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return partisipanArrayList;
+    }
+
+    public static void saveUser(ArrayList<Partisipan> partisipan) {
+        XStream xstream = new XStream(new StaxDriver());
+        String xmlUser = xstream.toXML(partisipan);
+        FileOutputStream coba = null;
+
+        try {
+            coba = new FileOutputStream("src\\DataBase\\UserData.xml");
+            byte[] bytes = xmlUser.getBytes("UTF-8");
+            coba.write(bytes);
+        } catch (Exception e) {
+            System.out.println("WARNING: " + e.getMessage());
+        } finally {
+            if (coba != null) {
+                try {
+                    coba.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static ArrayList<Komunitas> getAdmin() {
+        ArrayList<Komunitas> partisipanArrayList = new ArrayList<>();
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.addPermission(AnyTypePermission.ANY);
+        FileInputStream userInput = null;
+        try {
+            userInput = new FileInputStream("src\\DataBase\\AdminData.xml");
+            partisipanArrayList = (ArrayList<Komunitas>) xstream.fromXML(userInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (userInput != null) {
+                try {
+                    userInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return partisipanArrayList;
     }
 
 }
