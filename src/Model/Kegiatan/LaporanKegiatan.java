@@ -6,14 +6,16 @@ public class LaporanKegiatan extends Kegiatan{
     private String hasilKegiatan;
     private String evaluasiKegiatan;
     private String kesimpulanKegiatan;
+    private String imgSrc;
 
     public LaporanKegiatan(String namaKegiatan, String tujuan, String lokasi, String kalender_jam,
-            String rincianKegiatan, String hasilKegiatan, String evaluasiKegiatan, String kesimpulanKegiatan) {
+            String rincianKegiatan, String hasilKegiatan, String evaluasiKegiatan, String kesimpulanKegiatan, String imgSrc) {
         super(namaKegiatan, tujuan, lokasi, kalender_jam);
         this.rincianKegiatan = rincianKegiatan;
         this.hasilKegiatan = hasilKegiatan;
         this.evaluasiKegiatan = evaluasiKegiatan;
         this.kesimpulanKegiatan = kesimpulanKegiatan;
+        this.imgSrc = imgSrc;
     }
 
     public String getRincianKegiatan() {
@@ -46,6 +48,14 @@ public class LaporanKegiatan extends Kegiatan{
 
     public void setKesimpulanKegiatan(String kesimpulanKegiatan) {
         this.kesimpulanKegiatan = kesimpulanKegiatan;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 
 }
