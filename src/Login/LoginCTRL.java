@@ -1,4 +1,4 @@
-package View;
+package Login;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,7 +47,7 @@ public class LoginCTRL implements Initializable {
     @FXML
     void createAccount(ActionEvent event) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/SignUp");
+        Pane halaman = object.getPane("/Login/SignUp");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 
