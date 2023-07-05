@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import Model.Artikel.Artikel;
 import Model.Artikel.Berita;
+import Model.Kegiatan.JadwalKegiatan;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
@@ -44,6 +45,51 @@ public class XMLctrl {
         try {
             coba = new FileOutputStream("src\\DataBase\\ArtikelData.xml");
             byte[] bytes = xmlArtikel.getBytes("UTF-8");
+            coba.write(bytes);
+        } catch (Exception e) {
+            System.out.println("WARNING: " + e.getMessage());
+        } finally {
+            if (coba != null) {
+                try {
+                    coba.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static ArrayList<JadwalKegiatan> getJadwalKegiatan() {
+        ArrayList<JadwalKegiatan> artikelGreenForce = new ArrayList<>();
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.addPermission(AnyTypePermission.ANY);
+        FileInputStream jadwalKegiatanInput = null;
+        try {
+            jadwalKegiatanInput = new FileInputStream("src\\DataBase\\JadwalKegiatanData.xml");
+            artikelGreenForce = (ArrayList<JadwalKegiatan>) xstream.fromXML(jadwalKegiatanInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (jadwalKegiatanInput != null) {
+                try {
+                    jadwalKegiatanInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return artikelGreenForce;
+    }
+
+    public static void saveJadwalKegiatan(ArrayList<JadwalKegiatan> jadwalKegiatan) {
+        XStream xstream = new XStream(new StaxDriver());
+        String xmlJadwalKegiatan = xstream.toXML(jadwalKegiatan);
+        FileOutputStream coba = null;
+
+        try {
+            coba = new FileOutputStream("src\\DataBase\\JadwalKegiatanData.xml");
+            byte[] bytes = xmlJadwalKegiatan.getBytes("UTF-8");
             coba.write(bytes);
         } catch (Exception e) {
             System.out.println("WARNING: " + e.getMessage());

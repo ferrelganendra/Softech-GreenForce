@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.JadwalKegiatanEditCTRL">
+   <children>
+      <ScrollPane prefHeight="559.0" prefWidth="914.0">
+         <content>
+            <HBox prefHeight="548.0" prefWidth="905.0">
+               <children>
+                  <ScrollPane prefHeight="563.0" prefWidth="658.0">
+                     <content>
+                        <VBox prefHeight="776.0" prefWidth="633.0">
+                           <children>
+                              <TableView fx:id="TableView" prefHeight="549.0" prefWidth="633.0">
+                                <columns>
+                                    <TableColumn fx:id="kolomJam" prefWidth="304.0" text="Username" />
+                                    <TableColumn fx:id="kolomTujuan" prefWidth="324.0" text="UserID" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <VBox prefHeight="548.0" prefWidth="247.0">
+                     <children>
+                        <HBox prefHeight="282.0" prefWidth="247.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hapus Indeks ke-">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="250.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="71.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="250.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="Hapus" mnemonicParsing="false" onAction="#deleteButtonAction" prefHeight="25.0" prefWidth="71.0" text="Hapus">
+                                 <HBox.margin>
+                                    <Insets left="148.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

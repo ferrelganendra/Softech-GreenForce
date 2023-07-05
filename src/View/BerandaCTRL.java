@@ -9,6 +9,8 @@ import Home.Artikel.ACardCTRL;
 import Home.Artikel.ArtikelEditCTRL;
 import Home.Berita.BCard;
 import Home.Berita.BeritaEdit;
+import JadwalKegiatan.JadwalCardCTRL;
+import JadwalKegiatan.JadwalKegiatanEditCTRL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

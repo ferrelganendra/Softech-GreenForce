@@ -7,7 +7,7 @@ public class LaporanKegiatan extends Kegiatan{
     private String evaluasiKegiatan;
     private String kesimpulanKegiatan;
 
-    public LaporanKegiatan(String namaKegiatan, StringBuilder tujuan, String lokasi, String kalender_jam,
+    public LaporanKegiatan(String namaKegiatan, String tujuan, String lokasi, String kalender_jam,
             String rincianKegiatan, String hasilKegiatan, String evaluasiKegiatan, String kesimpulanKegiatan) {
         super(namaKegiatan, tujuan, lokasi, kalender_jam);
         this.rincianKegiatan = rincianKegiatan;

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="ArtikelBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JadwalKegiatan.JadwalKegiatanEditCTRL">
+   <children>
+      <HBox prefHeight="640.0" prefWidth="914.0">
+         <children>
+            <VBox prefHeight="558.0" prefWidth="925.0" style="-fx-background-color: f9f9f9;">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="303.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#kembali" prefHeight="23.0" prefWidth="71.0" text="Kembali">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></HBox>
+                  <Label text="Nama Kegiatan">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="namaKegiatan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0"> 
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Lokasi">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Tanggal/Jam">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="kalender_Jam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Keperluan">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label text="Tujuan">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                     <VBox.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#editJudul" prefHeight="30.0" prefWidth="297.0" text="Edit">
+                     <VBox.margin>
+                        <Insets left="328.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label text="Edit Image Cover">
+                     <VBox.margin>
+                        <Insets left="250.0" top="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fx:id="imgSrc" fitHeight="67.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="346.0" right="20.0" top="50.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button mnemonicParsing="false" onAction="#editImage" prefHeight="30.0" prefWidth="290.0" text="Edit">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="328.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#simpanEditArtikel" prefHeight="30.0" prefWidth="289.0" text="Selesai">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="328.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
