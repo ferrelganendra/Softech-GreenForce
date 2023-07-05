@@ -21,7 +21,7 @@
                      <children>
                         <Button mnemonicParsing="false" onAction="#kembali" prefHeight="23.0" prefWidth="71.0" text="Kembali">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+                              <Insets bottom="5.0" right="845.0" top="5.0" />
                            </HBox.margin>
                         </Button>
                      </children>
