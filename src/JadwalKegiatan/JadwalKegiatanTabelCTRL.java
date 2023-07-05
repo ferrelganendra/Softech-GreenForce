@@ -3,29 +3,25 @@ package JadwalKegiatan;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static javafx.collections.FXCollections.observableArrayList;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class JadwalKegiatanTabelCTRL implements Initializable {
-    ObservableList JadwalKegiatan = observableArrayList(
+    // ObservableList JadwalKegiatan = observableArrayList(
         
-    );
+    // );
 
-    @FXML
-    private TableColumn Username;
+    // @FXML
+    // private TableColumn Username;
 
-    @FXML
-    private TableColumn UserID;
+    // @FXML
+    // private TableColumn UserID;
 
-    @FXML
-    private TableView TableView;
+    // @FXML
+    // private TableView TableView;
 
     @FXML
     private TextField text;
@@ -43,9 +39,9 @@ public class JadwalKegiatanTabelCTRL implements Initializable {
 
     @FXML
     private void deleteButtonAction() {
-        int valueToDelete = Integer.parseInt(text.getText());
-        int x = valueToDelete -1;
-        JadwalKegiatan.remove(x);
+        // int valueToDelete = Integer.parseInt(text.getText());
+        // int x = valueToDelete -1;
+        // JadwalKegiatan.remove(x);
         text.setText("");          
     }
 
