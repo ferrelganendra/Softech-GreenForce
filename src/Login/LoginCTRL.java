@@ -93,6 +93,13 @@ public class LoginCTRL implements Initializable {
         }
     }
 
+    @FXML
+    private void kembaliKeberanda() {
+        OpenScene object = new OpenScene();
+        Pane halaman = object.getPane("/View/UserBeranda");
+        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 

@@ -19,7 +19,7 @@
                      <children>
                         <Button mnemonicParsing="false" onAction="#kembaliKeBeranda" prefHeight="27.0" prefWidth="63.0" text="Kembali">
                            <VBox.margin>
-                              <Insets bottom="10.0" left="836.0" top="10.0" />
+                              <Insets left="836.0" top="10.0" />
                            </VBox.margin>
                         </Button>
                         <VBox prefHeight="52.0" prefWidth="244.0" style="-fx-background-color: ffffff;">
@@ -37,11 +37,14 @@
                               <Insets left="16.0" right="16.0" top="10.0" />
                            </VBox.margin>
                         </VBox>
-                        <ImageView fx:id="imgSrc" fitHeight="150.0" fitWidth="914.0" pickOnBounds="true" preserveRatio="true">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <VBox.margin>
-                              <Insets top="10.0" />
+                              <Insets left="16.0" right="16.0" top="10.0" />
                            </VBox.margin>
-                        </ImageView>
+                           <children>
+                              <ImageView fx:id="imgSrc" fitHeight="155.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
                         <VBox prefHeight="52.0" prefWidth="244.0" style="-fx-background-color: ffffff;">
                            <VBox.margin>
                               <Insets left="16.0" right="16.0" top="10.0" />

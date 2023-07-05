@@ -43,7 +43,7 @@ public class BeritaView {
     @FXML
     void kembaliKeBeranda(ActionEvent event) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/Beranda");
+        Pane halaman = object.getPane("/View/UserBeranda");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 
