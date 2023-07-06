@@ -6,6 +6,7 @@ import Model.Account.Partisipan;
 
 public class VerifyLogin {
 
+    // berlum terpakai
     public static boolean verifyUserLoginStatus(ArrayList<Partisipan> user) {
         boolean verified = false;
         user = XMLctrl.getUser();
@@ -18,20 +19,6 @@ public class VerifyLogin {
         return verified;
     }
 
-    // public static boolean verifyUserLoginStatus(ArrayList<Partisipan> user) {
-    // boolean verified = false;
-    // ArrayList<Partisipan> userList = XMLctrl.getUser();
-    // for (Partisipan partisipan : userList) {
-    // int i = 0;
-    // if (partisipan.getUsername().equals(user.get(i).getUsername()) &&
-    // partisipan.getEmail().equals(user.get(i).getEmail())) {
-    // verified = true;
-    // break;
-    // }
-    // i++;
-    // }
-    // return verified;
-    // }
 
     private boolean userVerified = false;
     private boolean adminVerified = false;
