@@ -1,11 +1,11 @@
 package JadwalKegiatan;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -14,36 +14,45 @@ import Model.Kegiatan.JadwalKegiatan;
 import Main.MainPaneCTRL;
 
 public class JadwalCardCTRL{
+
+    @FXML
+    private Button Edit;
+
     @FXML
     private VBox VBoxV;
 
     @FXML
-    private ImageView imageABU;
-
-    @FXML
-    private Label namaKegiatan;
-
-    @FXML
-    private Label lokasi;
+    private ImageView imageJadwal;
 
     @FXML
     private Label kalenderJam;
 
     @FXML
-    private Label keperluan;
+    private Label kegiatan;
+
+    @FXML
+    private Text keperluan;
+
+    @FXML
+    private Label lokasi;
 
     @FXML
     private Text tujuan;
 
-    @FXML
-    private Button Edit;
+    public Button getEdit() {
+        return Edit;
+    }
+
+    public void setEdit(Button edit) {
+        Edit = edit;
+    }
 
     public ImageView getImage() {
-        return imageABU;
+        return imageJadwal;
     }
 
     public Label getKegiatan(){
-        return namaKegiatan;
+        return kegiatan;
     }
 
     public Label getLokasi(){
@@ -54,7 +63,7 @@ public class JadwalCardCTRL{
         return kalenderJam;
     }
 
-    public Label getKeperluan(){
+    public Text getKeperluan(){
         return keperluan;
     }
 
@@ -71,11 +80,11 @@ public class JadwalCardCTRL{
     }
 
     public void setImage(ImageView imageaBU) {
-        this.imageABU = imageaBU;
+        this.imageJadwal = imageaBU;
     }
 
     public void setKegiatan(Label kegiatan){
-        this.namaKegiatan = kegiatan;
+        this.kegiatan = kegiatan;
     }
 
     public void setLokasi(Label lokasi){
@@ -86,7 +95,7 @@ public class JadwalCardCTRL{
         this.kalenderJam = tanggal_jam;
     }
     
-    public void setKeperluan(Label keperluan){
+    public void setKeperluan(Text keperluan){
         this.keperluan = keperluan;
     } 
 
@@ -100,18 +109,18 @@ public class JadwalCardCTRL{
         String imagePath = jadwalKegiatan.getImgSrc();
         String fullImagePath = getClass().getResource("/Resource/" + imagePath).toExternalForm();
         Image imageSER = new Image(fullImagePath);
-        imageABU.setImage(imageSER);
-        namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
+        imageJadwal.setImage(imageSER);
+        kegiatan.setText(jadwalKegiatan.getNamaKegiatan());
         lokasi.setText(jadwalKegiatan.getLokasi());
         kalenderJam.setText(jadwalKegiatan.getKalenderjam());
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
         VBoxV.setStyle("-fx-background-radius: 15;" + "fx-effect:dropShadown(three-pass-box, rgba(0,0,0,0), 10, 0, 0, 10);");
-        imageABU.setStyle("-fx-background-radius: 15;");
+        imageJadwal.setStyle("-fx-background-radius: 15;");
     }
 
     @FXML
-    void keArtikel(MouseEvent event) {
+    void keEdit(ActionEvent event) {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/View/JadwalKegiatan");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);

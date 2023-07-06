@@ -19,27 +19,27 @@
                         <Insets left="25.0" top="15.0" />
                      </VBox.margin>
                   </Button>
-                  <TextField fx:id="Nama_Kegiatan" promptText="Nama Kegiatan">
+                  <TextField fx:id="namaKegiatan" promptText="Nama Kegiatan">
                      <VBox.margin>
                         <Insets left="200.0" right="200.0" top="35.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="Lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Lokasi">
+                  <TextField fx:id="lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Lokasi">
                      <VBox.margin>
                         <Insets left="200.0" right="200.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="Tanggal_Jam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tanggal/Jam">
+                  <TextField fx:id="tanggalJam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tanggal/Jam">
                      <VBox.margin>
                         <Insets left="200.0" right="200.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="Keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Keperluan">
+                  <TextField fx:id="keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Keperluan">
                      <VBox.margin>
                         <Insets left="200.0" right="200.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="Tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tujuan">
+                  <TextField fx:id="tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tujuan">
                      <VBox.margin>
                         <Insets left="200.0" right="200.0" top="20.0" />
                      </VBox.margin>

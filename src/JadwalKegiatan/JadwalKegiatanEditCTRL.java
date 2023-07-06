@@ -20,14 +20,12 @@ import util.XMLctrl;
 import Resource.FileManager;
 
 public class JadwalKegiatanEditCTRL {
+
     @FXML
     private VBox Virbox;
 
     @FXML
-    private TextField namaKegiatan;
-
-    @FXML
-    private TextField lokasi;
+    private ImageView imgSrc;
 
     @FXML
     private TextField kalenderJam;
@@ -36,11 +34,15 @@ public class JadwalKegiatanEditCTRL {
     private TextField keperluan;
 
     @FXML
-    private TextField tujuan;
+    private TextField lokasi;
 
     @FXML
-    private ImageView imgSrc;
-    
+    private TextField namaKegiatan;
+
+    @FXML
+    private TextField tujuan;
+
+
     ArrayList<JadwalKegiatan> jadwalKegiatan = XMLctrl.getJadwalKegiatan();
 
     @FXML
@@ -48,7 +50,7 @@ public class JadwalKegiatanEditCTRL {
         
         String nK = namaKegiatan.getText();
         String l = lokasi.getText();
-        String kJ = kalenderJam.getText();
+        String kJ = kalender_Jam.getText();
         String k = keperluan.getText();
         String t = tujuan.getText();
         String index = Virbox.getId();
@@ -72,7 +74,7 @@ public class JadwalKegiatanEditCTRL {
         imgSrc.setImage(image);
         namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
         lokasi.setText(jadwalKegiatan.getLokasi());
-        kalenderJam.setText(jadwalKegiatan.getKalender_jam());
+        kalender_Jam.setText(jadwalKegiatan.getKalender_jam());
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
     }
@@ -94,7 +96,8 @@ public class JadwalKegiatanEditCTRL {
                 Image image = new Image(fileUri.toURL().toString());
                 FileManager.saveImageToResourceFolder(selectedFile);
                 String fileName = selectedFile.getName();
-                jadwalKegiatan.get(Integer.valueOf(index)).setImgSrc("../Resource/" + fileName);
+                jadwalKegiatan.get(Integer.valueOf(index)).setImgSrc("../Resource/" +
+                        fileName);
                 imgSrc.setImage(image);
             } catch (MalformedURLException e) {
                 System.out.println("Error loading image: " + e.getMessage());
@@ -109,5 +112,38 @@ public class JadwalKegiatanEditCTRL {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/View/JadwalKegiatan");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+    }
+
+    @FXML
+    void simpanEditArtikel(ActionEvent event) {
+        String nK = namaKegiatan.getText();
+        String l = lokasi.getText();
+        String kJ = kalender_Jam.getText();
+        String k = keperluan.getText();
+        String t = tujuan.getText();
+        String index = Virbox.getId();
+
+        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(nK);
+        jadwalKegiatan.get(Integer.valueOf(index)).setLokasi(l);
+        jadwalKegiatan.get(Integer.valueOf(index)).setKalenderjam(kJ);
+        jadwalKegiatan.get(Integer.valueOf(index)).setKeperluan(k);
+        jadwalKegiatan.get(Integer.valueOf(index)).setTujuan(t);
+        XMLctrl.saveJadwalKegiatan(jadwalKegiatan);
+
+        OpenScene object = new OpenScene();
+        Pane halaman = object.getPane("/View/JadwalKegiatan");
+        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+    }
+
+    public void setData(JadwalKegiatan jadwalKegiatan) {
+        String imagePath = jadwalKegiatan.getImgSrc();
+        String fullImagePath = getClass().getResource("/Resource/" + imagePath).toExternalForm();
+        Image image = new Image(fullImagePath);
+        imgSrc.setImage(image);
+        namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
+        lokasi.setText(jadwalKegiatan.getLokasi());
+        kalender_Jam.setText(jadwalKegiatan.getKalenderjam());
+        keperluan.setText(jadwalKegiatan.getKeperluan());
+        tujuan.setText(jadwalKegiatan.getTujuan());
     }
 }

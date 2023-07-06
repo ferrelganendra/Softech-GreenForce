@@ -37,12 +37,6 @@ public abstract class Kegiatan {
     public void setLokasi(String lokasi) {
         this.lokasi = lokasi;
     }
-    public String getKalender_jam() {
-        return kalender_jam;
-    }
-    public void setKalender_jam(String kalender_jam) {
-        this.kalender_jam = kalender_jam;
-    }
 
     
 
