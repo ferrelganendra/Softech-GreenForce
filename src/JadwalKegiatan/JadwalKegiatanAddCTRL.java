@@ -31,7 +31,7 @@ public class JadwalKegiatanAddCTRL{
     private TextField lokasi;
 
     @FXML
-    private TextField kalenderJam;
+    private TextField tanggalJam;
 
     @FXML
     private TextField keperluan;
@@ -46,7 +46,7 @@ public class JadwalKegiatanAddCTRL{
     private Button tambah;
 
     ArrayList<JadwalKegiatan> jadwalKegiatanList = XMLctrl.getJadwalKegiatan();
-    JadwalKegiatan jadwalKegiatan = new JadwalKegiatan(null, null, null, null, null, null);
+    JadwalKegiatan jadwalKegiatan = new JadwalKegiatan("null", "null", "null", "null", "null", "null");
 
     @FXML
     void pilihGambar(ActionEvent event) {
@@ -77,7 +77,7 @@ public class JadwalKegiatanAddCTRL{
     void tambah(ActionEvent event) {
         jadwalKegiatan.setNamaKegiatan(namaKegiatan.getText());
         jadwalKegiatan.setLokasi(lokasi.getText());
-        jadwalKegiatan.setKalenderjam(kalenderJam.getText());
+        jadwalKegiatan.setKalenderjam(tanggalJam.getText());
         jadwalKegiatan.setKeperluan(keperluan.getText());
         jadwalKegiatan.setTujuan(tujuan.getText());
         jadwalKegiatanList.add(0, jadwalKegiatan);
@@ -85,7 +85,7 @@ public class JadwalKegiatanAddCTRL{
             XMLctrl.saveJadwalKegiatan(jadwalKegiatanList);
             try {
                 OpenScene object = new OpenScene();
-                Pane halaman = object.getPane("/View/Beranda");
+                Pane halaman = object.getPane("/View/JadwalKegiatan");
                 MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
             } catch (Exception e) {
                 ShowAlert.showAlert("Error", "Warning", "Halaman tidak ditemukan");

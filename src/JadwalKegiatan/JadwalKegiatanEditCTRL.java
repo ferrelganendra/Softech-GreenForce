@@ -89,10 +89,10 @@ public class JadwalKegiatanEditCTRL {
         String index = Virbox.getId();
 
         jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(nK);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(l);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(kJ);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(k);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(t);
+        jadwalKegiatan.get(Integer.valueOf(index)).setLokasi(l);
+        jadwalKegiatan.get(Integer.valueOf(index)).setKalenderjam(kJ);
+        jadwalKegiatan.get(Integer.valueOf(index)).setKeperluan(k);
+        jadwalKegiatan.get(Integer.valueOf(index)).setTujuan(t);
         XMLctrl.saveJadwalKegiatan(jadwalKegiatan);
 
         OpenScene object = new OpenScene();
@@ -107,7 +107,7 @@ public class JadwalKegiatanEditCTRL {
         imgSrc.setImage(image);
         namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
         lokasi.setText(jadwalKegiatan.getLokasi());
-        kalender_Jam.setText(jadwalKegiatan.getKalender_jam());
+        kalender_Jam.setText(jadwalKegiatan.getKalenderjam());
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
     }

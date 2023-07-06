@@ -31,7 +31,7 @@
                               <Insets left="427.0" />
                            </HBox.margin>
                            <children>
-                              <TextField prefHeight="25.0" prefWidth="48.0" promptText="Index">
+                              <TextField fx:id="indexDelete" prefHeight="25.0" prefWidth="48.0" promptText="Index">
                                  <HBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
@@ -41,7 +41,7 @@
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Delete">
+                              <Button mnemonicParsing="false" onAction="#hapusJadwal" prefHeight="25.0" prefWidth="103.0" text="Delete">
                                  <HBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
