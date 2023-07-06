@@ -20,14 +20,12 @@ import util.XMLctrl;
 import Resource.FileManager;
 
 public class JadwalKegiatanEditCTRL {
+
     @FXML
     private VBox Virbox;
 
     @FXML
-    private TextField namaKegiatan;
-
-    @FXML
-    private TextField lokasi;
+    private ImageView imgSrc;
 
     @FXML
     private TextField kalender_Jam;
@@ -36,46 +34,15 @@ public class JadwalKegiatanEditCTRL {
     private TextField keperluan;
 
     @FXML
+    private TextField lokasi;
+
+    @FXML
+    private TextField namaKegiatan;
+
+    @FXML
     private TextField tujuan;
 
-    @FXML
-    private ImageView imgSrc;
-    
     ArrayList<JadwalKegiatan> jadwalKegiatan = XMLctrl.getJadwalKegiatan();
-
-    @FXML
-    void simpanEditArtikel(ActionEvent event) {
-        
-        String nK = namaKegiatan.getText();
-        String l = lokasi.getText();
-        String kJ = kalender_Jam.getText();
-        String k = keperluan.getText();
-        String t = tujuan.getText();
-        String index = Virbox.getId();
-
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(nK);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(l);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(kJ);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(k);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(t);
-        XMLctrl.saveJadwalKegiatan(jadwalKegiatan);
-        
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/JadwalKegiatan");
-        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-    }
-
-    public void setData(JadwalKegiatan jadwalKegiatan) {
-        String imagePath = jadwalKegiatan.getImgSrc();
-        String fullImagePath = getClass().getResource("/Resource/" + imagePath).toExternalForm();
-        Image image = new Image(fullImagePath);
-        imgSrc.setImage(image);
-        namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
-        lokasi.setText(jadwalKegiatan.getLokasi());
-        kalender_Jam.setText(jadwalKegiatan.getKalender_jam());
-        keperluan.setText(jadwalKegiatan.getKeperluan());
-        tujuan.setText(jadwalKegiatan.getTujuan());
-    }
 
     @FXML
     void editImage(ActionEvent event) {
@@ -94,7 +61,8 @@ public class JadwalKegiatanEditCTRL {
                 Image image = new Image(fileUri.toURL().toString());
                 FileManager.saveImageToResourceFolder(selectedFile);
                 String fileName = selectedFile.getName();
-                jadwalKegiatan.get(Integer.valueOf(index)).setImgSrc("../Resource/" + fileName);
+                jadwalKegiatan.get(Integer.valueOf(index)).setImgSrc("../Resource/" +
+                        fileName);
                 imgSrc.setImage(image);
             } catch (MalformedURLException e) {
                 System.out.println("Error loading image: " + e.getMessage());
@@ -109,5 +77,38 @@ public class JadwalKegiatanEditCTRL {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/View/JadwalKegiatan");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+    }
+
+    @FXML
+    void simpanEditArtikel(ActionEvent event) {
+        String nK = namaKegiatan.getText();
+        String l = lokasi.getText();
+        String kJ = kalender_Jam.getText();
+        String k = keperluan.getText();
+        String t = tujuan.getText();
+        String index = Virbox.getId();
+
+        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(nK);
+        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(l);
+        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(kJ);
+        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(k);
+        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(t);
+        XMLctrl.saveJadwalKegiatan(jadwalKegiatan);
+
+        OpenScene object = new OpenScene();
+        Pane halaman = object.getPane("/View/JadwalKegiatan");
+        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+    }
+
+    public void setData(JadwalKegiatan jadwalKegiatan) {
+        String imagePath = jadwalKegiatan.getImgSrc();
+        String fullImagePath = getClass().getResource("/Resource/" + imagePath).toExternalForm();
+        Image image = new Image(fullImagePath);
+        imgSrc.setImage(image);
+        namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
+        lokasi.setText(jadwalKegiatan.getLokasi());
+        kalender_Jam.setText(jadwalKegiatan.getKalender_jam());
+        keperluan.setText(jadwalKegiatan.getKeperluan());
+        tujuan.setText(jadwalKegiatan.getTujuan());
     }
 }

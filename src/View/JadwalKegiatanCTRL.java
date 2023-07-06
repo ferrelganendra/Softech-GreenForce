@@ -58,7 +58,7 @@ public class JadwalKegiatanCTRL {
             // Mengload card artikel
             FXMLLoader cardloader = new FXMLLoader();
             cardloader.setLocation(getClass().getResource("/JadwalKegiatan/JadwalCard.fxml"));
-            CardBox = cardloader.load();
+            CardBox = cardloader.load(); // error disini
             JadwalCardCTRL cardCTRL = cardloader.getController();
             cardCTRL.setData(jadwalKegiatanGreenForce.get(i));
             CardBox.setId("" + i);
