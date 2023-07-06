@@ -30,7 +30,7 @@ public class JadwalKegiatanEditCTRL {
     private TextField lokasi;
 
     @FXML
-    private TextField kalender_Jam;
+    private TextField kalenderJam;
 
     @FXML
     private TextField keperluan;
@@ -48,7 +48,7 @@ public class JadwalKegiatanEditCTRL {
         
         String nK = namaKegiatan.getText();
         String l = lokasi.getText();
-        String kJ = kalender_Jam.getText();
+        String kJ = kalenderJam.getText();
         String k = keperluan.getText();
         String t = tujuan.getText();
         String index = Virbox.getId();
@@ -72,7 +72,7 @@ public class JadwalKegiatanEditCTRL {
         imgSrc.setImage(image);
         namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
         lokasi.setText(jadwalKegiatan.getLokasi());
-        kalender_Jam.setText(jadwalKegiatan.getKalender_jam());
+        kalenderJam.setText(jadwalKegiatan.getKalender_jam());
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
     }

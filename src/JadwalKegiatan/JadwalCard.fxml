@@ -70,7 +70,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="kalender_Jam" prefHeight="17.0" prefWidth="466.0">
+                        <Label fx:id="kalenderJam" prefHeight="17.0" prefWidth="466.0">
                            <HBox.margin>
                               <Insets left="15.0" top="3.0" />
                            </HBox.margin>
@@ -90,11 +90,11 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Text fx:id="keperluan" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="398.0">
+                        <Label fx:id="keperluan" prefHeight="17.0" prefWidth="427.0">
                            <HBox.margin>
                               <Insets left="15.0" top="3.0" />
                            </HBox.margin>
-                        </Text>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />

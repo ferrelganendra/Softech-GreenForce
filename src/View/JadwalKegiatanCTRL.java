@@ -67,7 +67,7 @@ public class JadwalKegiatanCTRL {
 
             // Megload page untuk mengedit artikel
             FXMLLoader jadwalKegiatanLoader = new FXMLLoader();
-            jadwalKegiatanLoader.setLocation(getClass().getResource("/JadwalKegiatan/JadwalKegiatanEdit.fxml"));
+            jadwalKegiatanLoader.setLocation(getClass().getResource("/JadwalKegiatann/JadwalKegiatanEdit.fxml"));
             VBox jadwalKegiatan = jadwalKegiatanLoader.load();
             JadwalKegiatanEditCTRL jadwalKegiatanEditCTRL = jadwalKegiatanLoader.getController();
             jadwalKegiatan.setId("" + i);

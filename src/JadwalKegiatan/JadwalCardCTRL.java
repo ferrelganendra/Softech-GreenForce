@@ -27,7 +27,7 @@ public class JadwalCardCTRL{
     private Label lokasi;
 
     @FXML
-    private Label kalender_Jam;
+    private Label kalenderJam;
 
     @FXML
     private Label keperluan;
@@ -51,7 +51,7 @@ public class JadwalCardCTRL{
     }
 
     public Label getkalenderJam(){
-        return kalender_Jam;
+        return kalenderJam;
     }
 
     public Label getKeperluan(){
@@ -83,7 +83,7 @@ public class JadwalCardCTRL{
     } 
 
     public void setKalenderJam(Label tanggal_jam){
-        this.kalender_Jam = tanggal_jam;
+        this.kalenderJam = tanggal_jam;
     }
     
     public void setKeperluan(Label keperluan){
@@ -103,7 +103,7 @@ public class JadwalCardCTRL{
         imageABU.setImage(imageSER);
         namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
         lokasi.setText(jadwalKegiatan.getLokasi());
-        kalender_Jam.setText(jadwalKegiatan.getKalenderjam());
+        kalenderJam.setText(jadwalKegiatan.getKalenderjam());
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
         VBoxV.setStyle("-fx-background-radius: 15;" + "fx-effect:dropShadown(three-pass-box, rgba(0,0,0,0), 10, 0, 0, 10);");
@@ -113,7 +113,7 @@ public class JadwalCardCTRL{
     @FXML
     void keArtikel(MouseEvent event) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/JadwalKegiatan/JadwalKegiatanEdit");
+        Pane halaman = object.getPane("/View/JadwalKegiatan");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 }
