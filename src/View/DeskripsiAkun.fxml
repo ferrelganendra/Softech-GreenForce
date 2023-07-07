@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" style="-fx-background-color: f9f9f9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="558.0" prefWidth="189.0" />
-      <VBox prefHeight="200.0" prefWidth="550.0" style="-fx-background-color: FFFFFF;">
+      <VBox prefHeight="200.0" prefWidth="550.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15;">
          <HBox.margin>
-            <Insets bottom="100.0" top="100.0" />
+            <Insets bottom="90.0" left="189.0" right="189.0" top="90.0" />
          </HBox.margin>
          <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="548.0" text="Profil Akun" textAlignment="CENTER" textFill="#545454">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="5.0" />
+               </VBox.margin>
+            </Separator>
             <HBox prefHeight="35.0" prefWidth="510.0">
                <VBox.margin>
-                  <Insets left="20.0" right="20.0" top="20.0" />
+                  <Insets left="20.0" right="20.0" top="5.0" />
                </VBox.margin>
                <children>
                   <Label text="Username:">
@@ -24,7 +40,7 @@
                         <Insets top="9.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="18.0" prefWidth="131.0">
+                  <Label fx:id="username" prefHeight="18.0" prefWidth="131.0">
                      <HBox.margin>
                         <Insets left="10.0" top="9.0" />
                      </HBox.margin>
@@ -38,7 +54,7 @@
                         <Insets top="9.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="18.0" prefWidth="105.0">
+                  <Label fx:id="email" prefHeight="18.0" prefWidth="105.0">
                      <HBox.margin>
                         <Insets left="10.0" top="9.0" />
                      </HBox.margin>
@@ -55,7 +71,7 @@
                         <Insets top="9.0" />
                      </HBox.margin>
                   </Label>
-                  <Label prefHeight="18.0" prefWidth="83.0">
+                  <Label fx:id="iduser" prefHeight="18.0" prefWidth="83.0">
                      <HBox.margin>
                         <Insets left="10.0" top="9.0" />
                      </HBox.margin>
@@ -65,8 +81,18 @@
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </HBox>
+            <BarChart prefWidth="508.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </BarChart>
          </children>
       </VBox>
-      <VBox prefHeight="558.0" prefWidth="189.0" />
    </children>
 </HBox>

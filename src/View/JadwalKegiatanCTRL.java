@@ -58,7 +58,6 @@ public class JadwalKegiatanCTRL {
             ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
         }
         indexDelete.setText("");
-
     }
 
     @FXML
