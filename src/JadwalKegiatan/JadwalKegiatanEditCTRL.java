@@ -19,6 +19,7 @@ import util.OpenScene;
 import util.XMLctrl;
 import Resource.FileManager;
 
+
 public class JadwalKegiatanEditCTRL {
 
     @FXML
@@ -72,6 +73,7 @@ public class JadwalKegiatanEditCTRL {
         }
     }
 
+
     @FXML
     void kembali(ActionEvent event) {
         OpenScene object = new OpenScene();
@@ -79,7 +81,6 @@ public class JadwalKegiatanEditCTRL {
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 
-    
     @FXML
     void simpanEditArtikel(ActionEvent event) {
         String nK = namaKegiatan.getText();
@@ -112,4 +113,5 @@ public class JadwalKegiatanEditCTRL {
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
     }
+    
 }
