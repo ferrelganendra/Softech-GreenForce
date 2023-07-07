@@ -1,5 +1,6 @@
 package View;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,6 +52,16 @@ public class JadwalKegiatanCTRL {
             if (konfirmasi) {
                 vBoxJadwal.getChildren().remove(targetCardBox);
                 JadwalKegiatan artikelToRemove = jadwalKegiatanGreenForce.get(Integer.valueOf(indexDelete.getText()));
+                File file = new File(artikelToRemove.getImgSrc());
+                if (file.exists()) {
+                    if (file.delete()) {
+                        System.out.println("File " + file.getName() + " berhasil dihapus.");
+                    } else {
+                        System.out.println("Gagal menghapus file.");
+                    }
+                } else {
+                    System.out.println("File tidak ditemukan.");
+                }
                 jadwalKegiatanGreenForce.remove(artikelToRemove);
                 XMLctrl.saveJadwalKegiatan(jadwalKegiatanGreenForce);
             }
@@ -88,7 +99,7 @@ public class JadwalKegiatanCTRL {
                     MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
                 });
                 // CardBox.setOnMouseClicked(event -> {
-                //     MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
+                // MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
                 // });
             }
         }

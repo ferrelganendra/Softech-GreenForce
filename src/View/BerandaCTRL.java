@@ -1,5 +1,6 @@
 package View;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,6 +73,16 @@ public class BerandaCTRL {
             if (konfirmasi) {
                 HBoxArtikel.getChildren().remove(targetCardBox);
                 Artikel artikelToRemove = artikelGreenForce.get(Integer.valueOf(indexDelete.getText()));
+                File file = new File(artikelToRemove.getImgSrc());
+                if (file.exists()) {
+                    if (file.delete()) {
+                        System.out.println("File " + file.getName() + " berhasil dihapus.");
+                    } else {
+                        System.out.println("Gagal menghapus file.");
+                    }
+                } else {
+                    System.out.println("File tidak ditemukan.");
+                }
                 artikelGreenForce.remove(artikelToRemove);
                 XMLctrl.saveArtikel(artikelGreenForce);
             }
@@ -92,6 +103,16 @@ public class BerandaCTRL {
             if (konfirmasi) {
                 HBoxBerita.getChildren().remove(targetCardBox);
                 Berita beritaToRemove = beritaGreenForce.get(Integer.valueOf(indexDelete1.getText()));
+                File file = new File(beritaToRemove.getImgSrc());
+                if (file.exists()) {
+                    if (file.delete()) {
+                        System.out.println("File " + file.getName() + " berhasil dihapus.");
+                    } else {
+                        System.out.println("Gagal menghapus file.");
+                    }
+                } else {
+                    System.out.println("File tidak ditemukan.");
+                }
                 beritaGreenForce.remove(beritaToRemove);
                 XMLctrl.saveBerita(beritaGreenForce);
             }
