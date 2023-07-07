@@ -79,6 +79,7 @@ public class JadwalKegiatanEditCTRL {
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 
+    
     @FXML
     void simpanEditArtikel(ActionEvent event) {
         String nK = namaKegiatan.getText();
