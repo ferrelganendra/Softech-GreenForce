@@ -173,12 +173,20 @@
       </HBox>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="901.0">
          <children>
-            <Button fx:id="Edit" mnemonicParsing="false" onAction="#keEdit" prefHeight="40.0" prefWidth="848.0" text="Edit">
+            <Button fx:id="Edit" mnemonicParsing="false" onAction="#keEdit" prefHeight="40.0" prefWidth="349.0" text="Join">
                <font>
                   <Font size="14.0" />
                </font>
                <HBox.margin>
-                  <Insets />
+                  <Insets left="70.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="Edit1" mnemonicParsing="false" onAction="#keEdit" prefHeight="40.0" prefWidth="349.0" text="Detail">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" />
                </HBox.margin>
             </Button>
          </children>

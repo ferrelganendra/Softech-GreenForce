@@ -6,7 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
 <VBox fx:id="Virbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JadwalKegiatan.JadwalKegiatanEditCTRL">
    <children>
@@ -28,76 +30,85 @@
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin></HBox>
-                  <Label text="Nama Kegiatan">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="namaKegiatan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0"> 
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label text="Lokasi">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label text="Tanggal/Jam">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="kalender_Jam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label text="Keperluan">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label text="Tujuan">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
-                     <VBox.margin>
-                        <Insets left="250.0" right="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <Label text="Edit Image Cover">
-                     <VBox.margin>
-                        <Insets left="250.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <ImageView fx:id="imgSrc" fitHeight="98.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets left="346.0" right="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button mnemonicParsing="false" onAction="#editImage" prefHeight="30.0" prefWidth="290.0" text="Edit">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="328.0" right="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#simpanEditArtikel" prefHeight="30.0" prefWidth="289.0" text="Selesai">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="328.0" right="20.0" />
-                     </VBox.margin>
-                  </Button>
+                  <StackPane prefHeight="505.0" prefWidth="925.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="269.0" stroke="BLACK" strokeType="INSIDE" width="517.0">
+                           <StackPane.margin>
+                              <Insets bottom="240.0" />
+                           </StackPane.margin>
+                        </Rectangle>
+                        <Label text="Nama Kegiatan">
+                           <StackPane.margin>
+                              <Insets bottom="480.0" right="365.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="namaKegiatan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                           <StackPane.margin>
+                              <Insets bottom="440.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Label text="Lokasi">
+                           <StackPane.margin>
+                              <Insets bottom="380.0" right="410.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                           <StackPane.margin>
+                              <Insets bottom="340.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Label text="Tanggal/Jam">
+                           <StackPane.margin>
+                              <Insets bottom="280.0" right="380.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="kalender_Jam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                           <StackPane.margin>
+                              <Insets bottom="238.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Label text="Keperluan">
+                           <StackPane.margin>
+                              <Insets bottom="180.0" right="390.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                           <StackPane.margin>
+                              <Insets bottom="135.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Label text="Tujuan">
+                           <StackPane.margin>
+                              <Insets bottom="70.0" right="410.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField fx:id="tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="452.0">
+                           <StackPane.margin>
+                              <Insets bottom="30.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Label text="Edit Image Cover">
+                           <StackPane.margin>
+                              <Insets right="425.0" top="100.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <ImageView fx:id="imgSrc" fitHeight="98.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true">
+                           <StackPane.margin>
+                              <Insets top="200.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#editImage" prefHeight="30.0" prefWidth="290.0" text="Edit">
+                           <StackPane.margin>
+                              <Insets top="360.0" />
+                           </StackPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#simpanEditArtikel" prefHeight="30.0" prefWidth="289.0" text="Selesai">
+                           <StackPane.margin>
+                              <Insets top="450.0" />
+                           </StackPane.margin>
+                        </Button>
+                     </children>
+                  </StackPane>
                </children>
             </VBox>
          </children>
