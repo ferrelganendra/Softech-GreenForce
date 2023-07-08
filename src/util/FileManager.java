@@ -71,6 +71,8 @@ public class FileManager {
                     System.out.println("Gagal menghapus file.");
                 }
             }
+        } else {
+            System.out.println("File sedang digunakan, tidak bisa menghapus file tersebut");
         }
     }
 

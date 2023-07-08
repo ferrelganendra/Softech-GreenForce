@@ -59,7 +59,7 @@ public class LoginCTRL implements Initializable {
         Partisipan user1 = null;
         for (int i = 0; i < user.size(); i++) {
             user1 = user.get(i);
-            if (user1 != null && user1.getEmail().equals(password) && user1.getUsername().equals(username)) {
+            if (user1 != null && user1.getPassword().equals(password) && user1.getUsername().equals(username)) {
                 OpenScene object = new OpenScene();
                 Pane halaman = object.getPane("/View/UserBeranda");
                 MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
@@ -67,7 +67,7 @@ public class LoginCTRL implements Initializable {
                 VerifyLogin.getInstance().setUserVerified(true);
             }
         }
-        if (!(user1 != null && user1.getEmail().equals(password) && user1.getUsername().equals(username))) {
+        if (!(user1 != null && user1.getPassword().equals(password) && user1.getUsername().equals(username))) {
             ShowAlert.showAlert1("Kesalahan", "Login Gagal", "Username atau password salah.");
         }
     }
@@ -80,7 +80,7 @@ public class LoginCTRL implements Initializable {
 
         for (int i = 0; i < admin.size(); i++) {
             adm = admin.get(i);
-            if (adm != null && adm.getEmail().equals(password) && adm.getUsername().equals(username)) {
+            if (adm != null && adm.getPassword().equals(password) && adm.getUsername().equals(username)) {
                 OpenScene object = new OpenScene();
                 Pane halaman = object.getPane("/View/Beranda");
                 MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
@@ -88,7 +88,7 @@ public class LoginCTRL implements Initializable {
                 VerifyLogin.getInstance().setAdminVerified(true);
             }
         }
-        if (!(adm != null && adm.getEmail().equals(password) && adm.getUsername().equals(username))) {
+        if (!(adm != null && adm.getPassword().equals(password) && adm.getUsername().equals(username))) {
             ShowAlert.showAlert1("Kesalahan", "Login Gagal", "Username atau password salah.");
         }
     }

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Model.Account.Akun;
 import Model.Account.Komunitas;
 import Model.Account.Partisipan;
 import Model.Artikel.Artikel;
@@ -228,6 +229,51 @@ public class XMLctrl {
     }
 
     @SuppressWarnings("unchecked")
+    public static ArrayList<LaporanKegiatan> getLaporan() {
+        ArrayList<LaporanKegiatan> artikelGreenForce = new ArrayList<>();
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.addPermission(AnyTypePermission.ANY);
+        FileInputStream artikelInput = null;
+        try {
+            artikelInput = new FileInputStream("src\\DataBase\\LaporanData.xml");
+            artikelGreenForce = (ArrayList<LaporanKegiatan>) xstream.fromXML(artikelInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (artikelInput != null) {
+                try {
+                    artikelInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return artikelGreenForce;
+    }
+
+    public static void saveLaporan(ArrayList<LaporanKegiatan> laporan) {
+        XStream xstream = new XStream(new StaxDriver());
+        String xmlArtikel = xstream.toXML(laporan);
+        FileOutputStream coba = null;
+
+        try {
+            coba = new FileOutputStream("src\\DataBase\\LaporanData.xml");
+            byte[] bytes = xmlArtikel.getBytes("UTF-8");
+            coba.write(bytes);
+        } catch (Exception e) {
+            System.out.println("WARNING: " + e.getMessage());
+        } finally {
+            if (coba != null) {
+                try {
+                    coba.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("unchecked")
     public static ArrayList<Partisipan> getUser() {
         ArrayList<Partisipan> partisipanArrayList = new ArrayList<>();
         XStream xstream = new XStream(new StaxDriver());
@@ -295,37 +341,80 @@ public class XMLctrl {
         return partisipanArrayList;
     }
 
-    @SuppressWarnings("unchecked")
-    public static ArrayList<LaporanKegiatan> getLaporan() {
-        ArrayList<LaporanKegiatan> artikelGreenForce = new ArrayList<>();
+    public static void saveCurrentAccount(Akun user) {
         XStream xstream = new XStream(new StaxDriver());
-        xstream.addPermission(AnyTypePermission.ANY);
-        FileInputStream artikelInput = null;
+        String xmlUser = xstream.toXML(user);
+        FileOutputStream coba = null;
         try {
-            artikelInput = new FileInputStream("src\\DataBase\\LaporanData.xml");
-            artikelGreenForce = (ArrayList<LaporanKegiatan>) xstream.fromXML(artikelInput);
+            coba = new FileOutputStream("src\\DataBase\\CurrentAccount.xml");
+            byte[] bytes = xmlUser.getBytes("UTF-8");
+            coba.write(bytes);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("WARNING: " + e.getMessage());
         } finally {
-            if (artikelInput != null) {
+            if (coba != null) {
                 try {
-                    artikelInput.close();
+                    coba.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
-        return artikelGreenForce;
     }
 
-    public static void saveLaporan(ArrayList<LaporanKegiatan> laporan) {
+    @SuppressWarnings("unchecked")
+    public static ArrayList<?> getCurrentAccount() {
+        ArrayList<?> current = new ArrayList<>();
         XStream xstream = new XStream(new StaxDriver());
-        String xmlArtikel = xstream.toXML(laporan);
+        xstream.addPermission(AnyTypePermission.ANY);
+        FileInputStream userInput = null;
+        try {
+            userInput = new FileInputStream("src\\DataBase\\CurrentAccount.xml");
+            current = (ArrayList<Komunitas>) xstream.fromXML(userInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (userInput != null) {
+                try {
+                    userInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return current;
+    }
+
+    public static VerifyLogin getVerify() {
+        VerifyLogin partisipanArrayList = new VerifyLogin();
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.addPermission(AnyTypePermission.ANY);
+        FileInputStream userInput = null;
+        try {
+            userInput = new FileInputStream("src\\DataBase\\Verify.xml");
+            partisipanArrayList = (VerifyLogin) xstream.fromXML(userInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (userInput != null) {
+                try {
+                    userInput.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return partisipanArrayList;
+    }
+
+    public static void saveVerify(VerifyLogin user) {
+        XStream xstream = new XStream(new StaxDriver());
+        String xmlUser = xstream.toXML(user);
         FileOutputStream coba = null;
 
         try {
-            coba = new FileOutputStream("src\\DataBase\\LaporanData.xml");
-            byte[] bytes = xmlArtikel.getBytes("UTF-8");
+            coba = new FileOutputStream("src\\DataBase\\UserData.xml");
+            byte[] bytes = xmlUser.getBytes("UTF-8");
             coba.write(bytes);
         } catch (Exception e) {
             System.out.println("WARNING: " + e.getMessage());
