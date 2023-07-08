@@ -71,25 +71,12 @@ public class MainPaneCTRL implements Initializable {
             Pane halaman = object.getPane("/View/UserBeranda");
             mainPane.setCenter(halaman);
         }
-        // } else if (VerifyLogin.getInstance().isVerifiedUser()) {
-        //     OpenScene object = new OpenScene();
-        //     Pane halaman = object.getPane("/View/UserBeranda");
-        //     mainPane.setCenter(halaman);
-        // } else if(!(VerifyLogin.getInstance().isVerifiedUser())) {
-        //     OpenScene object = new OpenScene();
-        //     Pane halaman = object.getPane("/View/UserBeranda");
-        //     mainPane.setCenter(halaman);
-        // } else {
-        //     OpenScene object = new OpenScene();
-        //     Pane halaman = object.getPane("/View/UserBeranda");
-        //     mainPane.setCenter(halaman);
-        // }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/UserBeranda");
+        Pane halaman = object.getPane("/View/Beranda");
         mainPane.setCenter(halaman);
     }
 

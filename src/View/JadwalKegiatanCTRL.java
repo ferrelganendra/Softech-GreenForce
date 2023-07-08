@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import util.FileManager;
 import util.OpenScene;
 import util.ShowAlert;
 import util.XMLctrl;
@@ -44,20 +45,24 @@ public class JadwalKegiatanCTRL {
     @FXML
     void hapusJadwal(ActionEvent event) {
         String targetId = indexDelete.getText();
-        VBox targetCardBox = cardBoxMap.get(targetId);
-        if (targetCardBox != null) {
-            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
-                    "Apakah Anda yakin akan menghapus Artikel ini?");
-            if (konfirmasi) {
-                vBoxJadwal.getChildren().remove(targetCardBox);
-                JadwalKegiatan artikelToRemove = jadwalKegiatanGreenForce.get(Integer.valueOf(indexDelete.getText()));
-                jadwalKegiatanGreenForce.remove(artikelToRemove);
-                XMLctrl.saveJadwalKegiatan(jadwalKegiatanGreenForce);
+        if (targetId != "") {
+            VBox targetCardBox = cardBoxMap.get(targetId);
+            JadwalKegiatan artikelToRemove = jadwalKegiatanGreenForce.get(Integer.valueOf(indexDelete.getText()));
+            String imagePath = artikelToRemove.getImgSrc();
+            if (targetCardBox != null) {
+                boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
+                        "Apakah Anda yakin akan menghapus Artikel ini?");
+                if (konfirmasi) {
+                    vBoxJadwal.getChildren().remove(targetCardBox);
+                    jadwalKegiatanGreenForce.remove(artikelToRemove);
+                    XMLctrl.saveJadwalKegiatan(jadwalKegiatanGreenForce);
+                    FileManager.deleteImageFromResource(imagePath);
+                }
+            } else {
+                ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
             }
-        } else {
-            ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
+            indexDelete.setText("");
         }
-        indexDelete.setText("");
     }
 
     @FXML
@@ -88,7 +93,7 @@ public class JadwalKegiatanCTRL {
                     MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
                 });
                 // CardBox.setOnMouseClicked(event -> {
-                //     MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
+                // MainPaneCTRL.getInstance().getMainPane().setCenter(jadwalKegiatan);
                 // });
             }
         }

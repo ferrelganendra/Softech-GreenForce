@@ -4,9 +4,8 @@ public class Akun {
     private String username;
     private String email;
     private String password;
-    public boolean getPassword;
 
-    public Akun(String username, String email, String password) {
+    public Akun(String username, String password, String email) {
         this.username = username;
         this.email = email;
         this.password = password;

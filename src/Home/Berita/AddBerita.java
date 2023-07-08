@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import Main.MainPaneCTRL;
 import Model.Artikel.Berita;
-import Resource.FileManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -16,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import util.FileManager;
 import util.OpenScene;
 import util.ShowAlert;
 import util.XMLctrl;
