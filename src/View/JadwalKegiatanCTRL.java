@@ -54,9 +54,9 @@ public class JadwalKegiatanCTRL {
                         "Apakah Anda yakin akan menghapus Artikel ini?");
                 if (konfirmasi) {
                     vBoxJadwal.getChildren().remove(targetCardBox);
-                    FileManager.deleteImageFromResource(imagePath);
                     jadwalKegiatanGreenForce.remove(artikelToRemove);
                     XMLctrl.saveJadwalKegiatan(jadwalKegiatanGreenForce);
+                    FileManager.deleteImageFromResource(imagePath);
                 }
             } else {
                 ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");

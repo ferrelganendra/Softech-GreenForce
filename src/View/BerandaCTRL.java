@@ -75,9 +75,9 @@ public class BerandaCTRL {
                         "Apakah Anda yakin akan menghapus Artikel ini?");
                 if (konfirmasi) {
                     HBoxArtikel.getChildren().remove(targetCardBox);
-                    FileManager.deleteImageFromResource(imagePath);
                     artikelGreenForce.remove(artikelToRemove);
                     XMLctrl.saveArtikel(artikelGreenForce);
+                    FileManager.deleteImageFromResource(imagePath);
                 }
             } else {
                 ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
