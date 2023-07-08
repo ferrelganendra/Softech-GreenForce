@@ -6,66 +6,76 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JadwalKegiatan.JadwalKegiatanAddCTRL">
    <children>
       <ScrollPane prefHeight="558.0" prefWidth="926.0">
          <content>
-            <VBox prefHeight="662.0" prefWidth="914.0">
+            <VBox prefHeight="739.0" prefWidth="900.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#kembali" prefHeight="25.0" prefWidth="90.0" text="Kembali">
-                     <VBox.margin>
-                        <Insets left="25.0" top="15.0" />
-                     </VBox.margin>
-                  </Button>
-                  <TextField fx:id="namaKegiatan" promptText="Nama Kegiatan">
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="35.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Lokasi">
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="tanggalJam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tanggal/Jam">
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Keperluan">
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tujuan">
-                     <VBox.margin>
-                        <Insets left="200.0" right="200.0" top="20.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="897.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#pilihGambar" prefHeight="30.0" prefWidth="112.0" text="Pilih gambar">
-                           <HBox.margin>
-                              <Insets left="200.0" top="60.0" />
-                           </HBox.margin>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="309.0" stroke="BLACK" strokeType="INSIDE" width="549.0">
+                           <StackPane.margin>
+                              <Insets bottom="180.0" />
+                           </StackPane.margin>
+                        </Rectangle>
+                        <Button mnemonicParsing="false" onAction="#kembali" prefHeight="25.0" prefWidth="90.0" text="Kembali">
+                           <StackPane.margin>
+                              <Insets bottom="500.0" right="750.0" />
+                           </StackPane.margin>
                         </Button>
-                        <ImageView fx:id="imgSrc" fitHeight="152.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
-                           <HBox.margin>
-                              <Insets left="132.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <TextField fx:id="namaKegiatan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="511.0" promptText="Nama Kegiatan">
+                           <StackPane.margin>
+                              <Insets bottom="400.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <TextField fx:id="lokasi" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Lokasi">
+                           <StackPane.margin>
+                              <Insets bottom="300.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <TextField fx:id="tanggalJam" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tanggal/Jam">
+                           <StackPane.margin>
+                              <Insets bottom="200.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <TextField fx:id="keperluan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Keperluan">
+                           <StackPane.margin>
+                              <Insets bottom="100.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <TextField fx:id="tujuan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="514.0" promptText="Tujuan" />
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="900.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#pilihGambar" prefHeight="30.0" prefWidth="112.0" text="Pilih gambar">
+                                 <HBox.margin>
+                                    <Insets left="200.0" top="60.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <ImageView fx:id="imgSrc" fitHeight="152.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="132.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <StackPane.margin>
+                              <Insets top="300.0" />
+                           </StackPane.margin>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#tambah" prefHeight="30.0" prefWidth="514.0" text="Tambah Artikel">
+                           <StackPane.margin>
+                              <Insets top="500.0" />
+                           </StackPane.margin>
+                        </Button>
                      </children>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
-                  </HBox>
-                  <Button mnemonicParsing="false" onAction="#tambah" prefHeight="30.0" prefWidth="514.0" text="Tambah Artikel">
-                     <VBox.margin>
-                        <Insets left="200.0" top="50.0" />
-                     </VBox.margin>
-                  </Button>
+                  </StackPane>
                </children></VBox>
          </content>
       </ScrollPane>

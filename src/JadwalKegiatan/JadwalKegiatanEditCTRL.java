@@ -19,6 +19,7 @@ import util.OpenScene;
 import util.XMLctrl;
 import Resource.FileManager;
 
+
 public class JadwalKegiatanEditCTRL {
 
     @FXML
@@ -28,7 +29,7 @@ public class JadwalKegiatanEditCTRL {
     private ImageView imgSrc;
 
     @FXML
-    private TextField kalenderJam;
+    private TextField kalender_Jam;
 
     @FXML
     private TextField keperluan;
@@ -42,42 +43,7 @@ public class JadwalKegiatanEditCTRL {
     @FXML
     private TextField tujuan;
 
-
     ArrayList<JadwalKegiatan> jadwalKegiatan = XMLctrl.getJadwalKegiatan();
-
-    @FXML
-    void simpanEditArtikel(ActionEvent event) {
-        
-        String nK = namaKegiatan.getText();
-        String l = lokasi.getText();
-        String kJ = kalender_Jam.getText();
-        String k = keperluan.getText();
-        String t = tujuan.getText();
-        String index = Virbox.getId();
-
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(nK);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(l);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(kJ);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(k);
-        jadwalKegiatan.get(Integer.valueOf(index)).setNamaKegiatan(t);
-        XMLctrl.saveJadwalKegiatan(jadwalKegiatan);
-        
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/JadwalKegiatan");
-        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-    }
-
-    public void setData(JadwalKegiatan jadwalKegiatan) {
-        String imagePath = jadwalKegiatan.getImgSrc();
-        String fullImagePath = getClass().getResource("/Resource/" + imagePath).toExternalForm();
-        Image image = new Image(fullImagePath);
-        imgSrc.setImage(image);
-        namaKegiatan.setText(jadwalKegiatan.getNamaKegiatan());
-        lokasi.setText(jadwalKegiatan.getLokasi());
-        kalender_Jam.setText(jadwalKegiatan.getKalender_jam());
-        keperluan.setText(jadwalKegiatan.getKeperluan());
-        tujuan.setText(jadwalKegiatan.getTujuan());
-    }
 
     @FXML
     void editImage(ActionEvent event) {
@@ -106,6 +72,7 @@ public class JadwalKegiatanEditCTRL {
             System.out.println("File is not valid");
         }
     }
+
 
     @FXML
     void kembali(ActionEvent event) {
@@ -146,4 +113,5 @@ public class JadwalKegiatanEditCTRL {
         keperluan.setText(jadwalKegiatan.getKeperluan());
         tujuan.setText(jadwalKegiatan.getTujuan());
     }
+    
 }

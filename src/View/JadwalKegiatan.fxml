@@ -14,7 +14,7 @@
    <children>
       <ScrollPane prefHeight="558.0" prefWidth="926.0" style="-fx-background-color: ececec;" stylesheets="@../scrollpane.css">
          <content>
-            <VBox prefHeight="708.0" prefWidth="914.0" style="-fx-background-color: f5f5f5;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="885.0" style="-fx-background-color: f5f5f5;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
                <children>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="914.0">
                      <children>
@@ -36,12 +36,12 @@
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" onAction="#addArtikel" prefHeight="25.0" prefWidth="103.0" text="Add">
+                              <Button mnemonicParsing="false" onAction="#hapusJadwal" prefHeight="25.0" prefWidth="103.0" text="Delete">
                                  <HBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#hapusJadwal" prefHeight="25.0" prefWidth="103.0" text="Delete">
+                              <Button mnemonicParsing="false" onAction="#addArtikel" prefHeight="25.0" prefWidth="103.0" text="Add">
                                  <HBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
@@ -50,12 +50,12 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <Separator prefWidth="200.0">
+                  <Separator minHeight="-Infinity" minWidth="-Infinity" prefHeight="3.0" prefWidth="852.0">
                      <VBox.margin>
                         <Insets bottom="20.0" left="30.0" right="30.0" />
                      </VBox.margin>
                   </Separator>
-                  <VBox fx:id="vBoxJadwal" prefHeight="200.0" prefWidth="100.0">
+                  <VBox fx:id="vBoxJadwal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="851.0">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>

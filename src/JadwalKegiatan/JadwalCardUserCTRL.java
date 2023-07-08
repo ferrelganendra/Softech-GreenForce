@@ -12,7 +12,12 @@ import util.OpenScene;
 import Model.Kegiatan.JadwalKegiatan;
 import Main.MainPaneCTRL;
 
-public class JadwalCardCTRL{
+public class JadwalCardUserCTRL {
+    // @FXML
+    // private Button Join;
+
+    // @FXML
+    // private Button Detail;
 
     @FXML
     private Button Edit;
@@ -117,12 +122,5 @@ public class JadwalCardCTRL{
         tujuan.setText(jadwalKegiatan.getTujuan());
         VBoxV.setStyle("-fx-background-radius: 15;" + "fx-effect:dropShadown(three-pass-box, rgba(0,0,0,0), 10, 0, 0, 10);");
         imageJadwal.setStyle("-fx-background-radius: 15;");
-    }
-
-    @FXML
-    void keEdit(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/JadwalKegiatan/JadwalKegiatanEdit");
-        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 }

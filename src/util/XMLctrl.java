@@ -60,17 +60,17 @@ public class XMLctrl {
                 }
             }
         }
-    }  
+    }
 
     @SuppressWarnings("unchecked")
     public static ArrayList<JadwalKegiatan> getJadwalKegiatan() {
-        ArrayList<JadwalKegiatan> jadwalKegiatanGreenForce = new ArrayList<>();
+        ArrayList<JadwalKegiatan> artikelGreenForce = new ArrayList<>();
         XStream xstream = new XStream(new StaxDriver());
         xstream.addPermission(AnyTypePermission.ANY);
         FileInputStream jadwalKegiatanInput = null;
         try {
-            jadwalKegiatanInput = new FileInputStream("\\DataBase\\JadwalKegiatanData.xml");
-            jadwalKegiatanGreenForce = (ArrayList<JadwalKegiatan>) xstream.fromXML(jadwalKegiatanInput);
+            jadwalKegiatanInput = new FileInputStream("src\\DataBase\\JadwalKegiatanData.xml");
+            artikelGreenForce = (ArrayList<JadwalKegiatan>) xstream.fromXML(jadwalKegiatanInput);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -82,7 +82,7 @@ public class XMLctrl {
                 }
             }
         }
-        return jadwalKegiatanGreenForce;
+        return artikelGreenForce;
     }
 
     public static void saveJadwalKegiatan(ArrayList<JadwalKegiatan> jadwalKegiatan) {
@@ -91,7 +91,7 @@ public class XMLctrl {
         FileOutputStream coba = null;
 
         try {
-            coba = new FileOutputStream("\\DataBase\\JadwalKegiatanData.xml");
+            coba = new FileOutputStream("src\\DataBase\\JadwalKegiatanData.xml");
             byte[] bytes = xmlJadwalKegiatan.getBytes("UTF-8");
             coba.write(bytes);
         } catch (Exception e) {
