@@ -7,6 +7,8 @@ package Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Account.Akun;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
@@ -14,8 +16,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.application.Platform;
 import util.OpenScene;
 import util.VerifyLogin;
+import util.XMLctrl;
 
 public class MainPaneCTRL implements Initializable {
 
@@ -23,7 +27,27 @@ public class MainPaneCTRL implements Initializable {
     private HBox akunSaya;
 
     @FXML
+    private HBox HBoxCenter;
+
+    @FXML
     private BorderPane mainPane;
+
+    @FXML
+    private HBox topMainPane;
+
+    @FXML
+    private HBox logout;
+
+    VerifyLogin ver = XMLctrl.getVerify();
+    Akun current = XMLctrl.getCurrentAccount();
+
+    public void setLogOut(boolean visible) {
+        logout.setVisible(visible);
+    }
+
+    public HBox getTopMainPane() {
+        return topMainPane;
+    }
 
     public BorderPane getMainPane() {
         return mainPane;
@@ -40,10 +64,34 @@ public class MainPaneCTRL implements Initializable {
     }
 
     @FXML
+    void Logout(MouseEvent event) {
+        logout.setVisible(false);
+        Platform.runLater(() -> {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/Login/Login");
+            mainPane.setCenter(halaman);
+            ver.setAdminVerified(false);
+            ver.setUserVerified(false);
+            XMLctrl.saveVerify(ver);
+        });
+    }
+
+    @FXML
     void keAkun(MouseEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/Login/Login");
-        mainPane.setCenter(halaman);
+        VerifyLogin ver = XMLctrl.getVerify();
+        if (ver.isVerifiedAdmin()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/DeskripsiAkun");
+            mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/DeskripsiAkun");
+            mainPane.setCenter(halaman);
+        } else { // Kondisi ketika logout atau (login as guest)
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/Login/Login");
+            mainPane.setCenter(halaman);
+        }
     }
 
     @FXML
@@ -62,9 +110,13 @@ public class MainPaneCTRL implements Initializable {
 
     @FXML
     void keBeranda(ActionEvent event) {
-        if (VerifyLogin.getInstance().isVerifiedAdmin()) {
+        if (ver.isVerifiedAdmin()) {
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/Beranda");
+            mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
             mainPane.setCenter(halaman);
         } else {
             OpenScene object = new OpenScene();
@@ -75,9 +127,22 @@ public class MainPaneCTRL implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/Beranda");
-        mainPane.setCenter(halaman);
+        if (ver.isVerifiedAdmin()) {
+            logout.setVisible(true);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/Beranda");
+            mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            logout.setVisible(true);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            mainPane.setCenter(halaman);
+        } else {
+            logout.setVisible(false);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            mainPane.setCenter(halaman);
+        }
     }
 
 }

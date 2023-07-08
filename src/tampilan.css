@@ -38,6 +38,20 @@
     -fx-font-size: 13px;
 }
 
+.bordered-hbox {
+    -fx-border-color: linear-gradient(to right, #098c53, #246861);
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+.bordered-hbox:hover {
+    -fx-border-color: linear-gradient(to right, #098c53, #246861);
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #a1f0ce;
+
+}
+
 .vbox {
     -fx-spacing: 10px;
     -fx-padding: 10px;

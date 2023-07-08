@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Main.MainPaneCTRL;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,18 +57,27 @@ public class LoginCTRL implements Initializable {
     private void loginButtonClicked() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        Partisipan user1 = null;
+        Partisipan userMatch = null;
         for (int i = 0; i < user.size(); i++) {
-            user1 = user.get(i);
+            Partisipan user1 = user.get(i);
             if (user1 != null && user1.getPassword().equals(password) && user1.getUsername().equals(username)) {
-                OpenScene object = new OpenScene();
-                Pane halaman = object.getPane("/View/UserBeranda");
-                MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
-                ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
-                VerifyLogin.getInstance().setUserVerified(true);
+                userMatch = user1;
+                break;
             }
         }
-        if (!(user1 != null && user1.getPassword().equals(password) && user1.getUsername().equals(username))) {
+        if (userMatch != null) {
+            VerifyLogin ver = new VerifyLogin();
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+            MainPaneCTRL.getInstance().setLogOut(true);
+            ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
+            ver.setAdminVerified(false);
+            ver.setUserVerified(true);
+            XMLctrl.saveVerify(ver);
+            XMLctrl.saveCurrentAccount(userMatch);
+            MainPaneCTRL.getInstance().getMainPane().setTop(MainPaneCTRL.getInstance().getTopMainPane());
+        } else {
             ShowAlert.showAlert1("Kesalahan", "Login Gagal", "Username atau password salah.");
         }
     }
@@ -76,19 +86,30 @@ public class LoginCTRL implements Initializable {
     private void loginAsAdminClicked() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        Komunitas adm = null;
-
+        Komunitas adminMatch = null;
         for (int i = 0; i < admin.size(); i++) {
-            adm = admin.get(i);
+            Komunitas adm = admin.get(i);
             if (adm != null && adm.getPassword().equals(password) && adm.getUsername().equals(username)) {
+                adminMatch = adm;
+                break;
+            }
+        }
+        if (adminMatch != null) {
+            Komunitas finalAdminMatch = adminMatch;
+            VerifyLogin ver = new VerifyLogin();
+            ver.setAdminVerified(true);
+            ver.setUserVerified(false);
+            XMLctrl.saveVerify(ver);
+            XMLctrl.saveCurrentAccount(finalAdminMatch);
+            Platform.runLater(() -> {
+                // Logika aksi setelah logout
                 OpenScene object = new OpenScene();
                 Pane halaman = object.getPane("/View/Beranda");
                 MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
+                MainPaneCTRL.getInstance().setLogOut(true);
                 ShowAlert.showAlert("Sukses", "Login Berhasil", "Selamat datang, " + username + "!");
-                VerifyLogin.getInstance().setAdminVerified(true);
-            }
-        }
-        if (!(adm != null && adm.getPassword().equals(password) && adm.getUsername().equals(username))) {
+            });
+        } else {
             ShowAlert.showAlert1("Kesalahan", "Login Gagal", "Username atau password salah.");
         }
     }

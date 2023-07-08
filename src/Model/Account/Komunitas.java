@@ -28,6 +28,6 @@ public class Komunitas extends Akun{
 
     public String getID() {
         return ID;
-    }
+    } 
     
 }
