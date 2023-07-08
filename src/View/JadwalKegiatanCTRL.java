@@ -1,6 +1,5 @@
 package View;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import util.FileManager;
 import util.OpenScene;
 import util.ShowAlert;
 import util.XMLctrl;
@@ -45,30 +45,24 @@ public class JadwalKegiatanCTRL {
     @FXML
     void hapusJadwal(ActionEvent event) {
         String targetId = indexDelete.getText();
-        VBox targetCardBox = cardBoxMap.get(targetId);
-        if (targetCardBox != null) {
-            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
-                    "Apakah Anda yakin akan menghapus Artikel ini?");
-            if (konfirmasi) {
-                vBoxJadwal.getChildren().remove(targetCardBox);
-                JadwalKegiatan artikelToRemove = jadwalKegiatanGreenForce.get(Integer.valueOf(indexDelete.getText()));
-                File file = new File(artikelToRemove.getImgSrc());
-                if (file.exists()) {
-                    if (file.delete()) {
-                        System.out.println("File " + file.getName() + " berhasil dihapus.");
-                    } else {
-                        System.out.println("Gagal menghapus file.");
-                    }
-                } else {
-                    System.out.println("File tidak ditemukan.");
+        if (targetId != "") {
+            VBox targetCardBox = cardBoxMap.get(targetId);
+            JadwalKegiatan artikelToRemove = jadwalKegiatanGreenForce.get(Integer.valueOf(indexDelete.getText()));
+            String imagePath = artikelToRemove.getImgSrc();
+            if (targetCardBox != null) {
+                boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
+                        "Apakah Anda yakin akan menghapus Artikel ini?");
+                if (konfirmasi) {
+                    vBoxJadwal.getChildren().remove(targetCardBox);
+                    FileManager.deleteImageFromResource(imagePath);
+                    jadwalKegiatanGreenForce.remove(artikelToRemove);
+                    XMLctrl.saveJadwalKegiatan(jadwalKegiatanGreenForce);
                 }
-                jadwalKegiatanGreenForce.remove(artikelToRemove);
-                XMLctrl.saveJadwalKegiatan(jadwalKegiatanGreenForce);
+            } else {
+                ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
             }
-        } else {
-            ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
+            indexDelete.setText("");
         }
-        indexDelete.setText("");
     }
 
     @FXML

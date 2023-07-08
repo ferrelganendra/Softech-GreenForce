@@ -15,9 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import util.FileManager;
 import util.OpenScene;
 import util.XMLctrl;
-import Resource.FileManager;
 
 
 public class JadwalKegiatanEditCTRL {

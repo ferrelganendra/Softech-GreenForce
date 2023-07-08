@@ -1,6 +1,5 @@
 package View;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import util.FileManager;
 import util.OpenScene;
 import util.ShowAlert;
 import util.XMLctrl;
@@ -64,62 +64,50 @@ public class BerandaCTRL {
     }
 
     @FXML
-    void hapusArtikel(ActionEvent event) {
+    void hapusArtikel(ActionEvent event) throws IOException {
         String targetId = indexDelete.getText();
-        HBox targetCardBox = cardBoxMap.get(targetId);
-        if (targetCardBox != null) {
-            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
-                    "Apakah Anda yakin akan menghapus Artikel ini?");
-            if (konfirmasi) {
-                HBoxArtikel.getChildren().remove(targetCardBox);
-                Artikel artikelToRemove = artikelGreenForce.get(Integer.valueOf(indexDelete.getText()));
-                File file = new File(artikelToRemove.getImgSrc());
-                if (file.exists()) {
-                    if (file.delete()) {
-                        System.out.println("File " + file.getName() + " berhasil dihapus.");
-                    } else {
-                        System.out.println("Gagal menghapus file.");
-                    }
-                } else {
-                    System.out.println("File tidak ditemukan.");
+        if (targetId != "") {
+            HBox targetCardBox = cardBoxMap.get(targetId);
+            Artikel artikelToRemove = artikelGreenForce.get(Integer.valueOf(indexDelete.getText()));
+            String imagePath = artikelToRemove.getImgSrc();
+            if (targetCardBox != null) {
+                boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
+                        "Apakah Anda yakin akan menghapus Artikel ini?");
+                if (konfirmasi) {
+                    HBoxArtikel.getChildren().remove(targetCardBox);
+                    FileManager.deleteImageFromResource(imagePath);
+                    artikelGreenForce.remove(artikelToRemove);
+                    XMLctrl.saveArtikel(artikelGreenForce);
                 }
-                artikelGreenForce.remove(artikelToRemove);
-                XMLctrl.saveArtikel(artikelGreenForce);
+            } else {
+                ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
             }
-
-        } else {
-            ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
+            indexDelete.setText("");
         }
-        indexDelete.setText("");
     }
 
     @FXML
-    void hapusBerita(ActionEvent event) {
+    void hapusBerita(ActionEvent event) throws IOException {
         String targetId = indexDelete1.getText();
-        HBox targetCardBox = cardBoxMap2.get(targetId);
-        if (targetCardBox != null) {
-            boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
-                    "Apakah Anda yakin akan menghapus Artikel ini?");
-            if (konfirmasi) {
-                HBoxBerita.getChildren().remove(targetCardBox);
-                Berita beritaToRemove = beritaGreenForce.get(Integer.valueOf(indexDelete1.getText()));
-                File file = new File(beritaToRemove.getImgSrc());
-                if (file.exists()) {
-                    if (file.delete()) {
-                        System.out.println("File " + file.getName() + " berhasil dihapus.");
-                    } else {
-                        System.out.println("Gagal menghapus file.");
-                    }
-                } else {
-                    System.out.println("File tidak ditemukan.");
+        if (targetId != "") {
+            HBox targetCardBox = cardBoxMap2.get(targetId);
+            Berita beritaToRemove = beritaGreenForce.get(Integer.valueOf(indexDelete1.getText()));
+            String imagePath = beritaToRemove.getImgSrc();
+            if (targetCardBox != null) {
+                boolean konfirmasi = ShowAlert.showConfirmation("Konfirmasi",
+                        "Apakah Anda yakin akan menghapus Artikel ini?");
+                if (konfirmasi) {
+                    HBoxBerita.getChildren().remove(targetCardBox);
+                    beritaGreenForce.remove(beritaToRemove);
+                    XMLctrl.saveBerita(beritaGreenForce);
+                    FileManager.deleteImageFromResource(imagePath);
                 }
-                beritaGreenForce.remove(beritaToRemove);
-                XMLctrl.saveBerita(beritaGreenForce);
+            } else {
+                ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
             }
-        } else {
-            ShowAlert.showAlert("Error", "Berita dengan index " + targetId + " tidak ada", "Index dimulai dari 0");
+            indexDelete1.setText("");
         }
-        indexDelete1.setText("");
+
     }
 
     @FXML
