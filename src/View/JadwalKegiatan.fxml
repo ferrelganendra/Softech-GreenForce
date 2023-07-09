@@ -36,12 +36,12 @@
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" onAction="#hapusJadwal" prefHeight="25.0" prefWidth="103.0" text="Delete">
+                              <Button mnemonicParsing="false" onAction="#addArtikel" prefHeight="25.0" prefWidth="103.0" text="Add">
                                  <HBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#addArtikel" prefHeight="25.0" prefWidth="103.0" text="Add">
+                              <Button mnemonicParsing="false" onAction="#hapusJadwal" prefHeight="25.0" prefWidth="103.0" text="Delete">
                                  <HBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </HBox.margin>

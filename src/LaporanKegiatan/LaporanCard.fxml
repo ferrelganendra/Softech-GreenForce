@@ -3,4 +3,4 @@
 <?import javafx.scene.control.Button?>
 
 
-<Button mnemonicParsing="false" prefHeight="100.0" prefWidth="802.0" style="-fx-background-radius: 10;" text="Button" textAlignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" />
+<Button fx:id="button" mnemonicParsing="false" onAction="#keLaporanKegiatan" prefHeight="100.0" prefWidth="802.0" style="-fx-background-radius: 10;" text="Laporan Kegiatan" textAlignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" />
