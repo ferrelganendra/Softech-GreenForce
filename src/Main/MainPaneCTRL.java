@@ -95,7 +95,7 @@ public class MainPaneCTRL implements Initializable {
     }
 
     @FXML
-    void keJadwalAksi(ActionEvent event) {
+    void keJadwalAksi(MouseEvent event) {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/View/JadwalKegiatan");
         mainPane.setCenter(halaman);
@@ -109,7 +109,7 @@ public class MainPaneCTRL implements Initializable {
     }
 
     @FXML
-    void keBeranda(ActionEvent event) {
+    void keBeranda(MouseEvent event) {
         if (ver.isVerifiedAdmin()) {
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/Beranda");

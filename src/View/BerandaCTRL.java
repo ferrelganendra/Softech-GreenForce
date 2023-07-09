@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -50,21 +51,21 @@ public class BerandaCTRL {
     ArrayList<Berita> beritaGreenForce = XMLctrl.getBerita();
 
     @FXML
-    void addArtikel(ActionEvent event) {
+    void addArtikel(MouseEvent event) {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/Home/Artikel/AddArtikel");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 
     @FXML
-    void addBerita(ActionEvent event) {
+    void addBerita(MouseEvent event) {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/Home/Berita/AddBerita");
         MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 
     @FXML
-    void hapusArtikel(ActionEvent event) throws IOException {
+    void hapusArtikel(MouseEvent event) throws IOException {
         String targetId = indexDelete.getText();
         if (targetId != "") {
             HBox targetCardBox = cardBoxMap.get(targetId);
@@ -75,6 +76,9 @@ public class BerandaCTRL {
                         "Apakah Anda yakin akan menghapus Artikel ini?");
                 if (konfirmasi) {
                     HBoxArtikel.getChildren().remove(targetCardBox);
+                    OpenScene object = new OpenScene();
+                    Pane halaman = object.getPane("/View/Beranda");
+                    MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
                     artikelGreenForce.remove(artikelToRemove);
                     XMLctrl.saveArtikel(artikelGreenForce);
                     FileManager.deleteImageFromResource(imagePath);
@@ -87,7 +91,7 @@ public class BerandaCTRL {
     }
 
     @FXML
-    void hapusBerita(ActionEvent event) throws IOException {
+    void hapusBerita(MouseEvent event) throws IOException {
         String targetId = indexDelete1.getText();
         if (targetId != "") {
             HBox targetCardBox = cardBoxMap2.get(targetId);
@@ -98,6 +102,9 @@ public class BerandaCTRL {
                         "Apakah Anda yakin akan menghapus Artikel ini?");
                 if (konfirmasi) {
                     HBoxBerita.getChildren().remove(targetCardBox);
+                    OpenScene object = new OpenScene();
+                    Pane halaman = object.getPane("/View/Beranda");
+                    MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
                     beritaGreenForce.remove(beritaToRemove);
                     XMLctrl.saveBerita(beritaGreenForce);
                     FileManager.deleteImageFromResource(imagePath);
