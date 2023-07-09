@@ -58,7 +58,7 @@
                            <children>
                               <Button fx:id="Hapus" mnemonicParsing="false" onAction="#deleteButtonAction" prefHeight="25.0" prefWidth="71.0" text="Hapus">
                                  <HBox.margin>
-                                    <Insets left="148.0" />
+                                    <Insets left="147.0" />
                                  </HBox.margin>
                               </Button>
                            </children>

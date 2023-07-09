@@ -7,15 +7,20 @@ package Main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+
+import Model.Account.Akun;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import util.OpenScene;
+import util.ShowAlert;
 import util.VerifyLogin;
+import util.XMLctrl;
 
 public class MainPaneCTRL implements Initializable {
 
@@ -23,7 +28,26 @@ public class MainPaneCTRL implements Initializable {
     private HBox akunSaya;
 
     @FXML
+    private HBox HBoxCenter;
+
+    @FXML
     private BorderPane mainPane;
+
+    @FXML
+    private HBox topMainPane;
+
+    @FXML
+    private HBox logout;
+
+    Akun current = XMLctrl.getCurrentAccount();
+
+    public void setLogOut(boolean visible) {
+        logout.setVisible(visible);
+    }
+
+    public HBox getTopMainPane() {
+        return topMainPane;
+    }
 
     public BorderPane getMainPane() {
         return mainPane;
@@ -40,33 +64,89 @@ public class MainPaneCTRL implements Initializable {
     }
 
     @FXML
+    void AjukanAksi(ActionEvent event) {
+        ShowAlert.showAlert(null, "Mohon Maaf, Fitur belum tersedia", null);
+    }
+
+    @FXML
+    void Logout(MouseEvent event) {
+        VerifyLogin ver = XMLctrl.getVerify();
+        logout.setVisible(false);
+        Platform.runLater(() -> {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/Login/Login");
+            mainPane.setCenter(halaman);
+            ver.setAdminVerified(false);
+            ver.setUserVerified(false);
+            XMLctrl.saveVerify(ver);
+        });
+    }
+
+    @FXML
     void keAkun(MouseEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/Login/Login");
-        mainPane.setCenter(halaman);
+        VerifyLogin ver = XMLctrl.getVerify();
+        if (ver.isVerifiedAdmin()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/DeskripsiAkun");
+            mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/DeskripsiAkun");
+            mainPane.setCenter(halaman);
+        } else { // Kondisi ketika logout atau (login as guest)
+            ShowAlert.showAlert("", "Silahkan login terlebih dahulu", null);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/Login/Login");
+            mainPane.setCenter(halaman);
+        }
     }
 
     @FXML
-    void keJadwalAksi(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/JadwalKegiatan");
-        mainPane.setCenter(halaman);
+    void keDonasi(MouseEvent event) {
+        ShowAlert.showAlert(null, "Mohon Maaf, Fitur belum tersedia", null);
     }
 
     @FXML
-    void keLaporanKegiatan(ActionEvent event) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/LaporanKegiatan");
-        mainPane.setCenter(halaman);
+    void keJadwalAksi(MouseEvent event) {
+        VerifyLogin ver = XMLctrl.getVerify();
+        if (ver.isVerifiedAdmin()) {
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/JadwalKegiatan");
+            mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            ShowAlert.showAlert(null, "Mohon Maaf, Fitur belum tersedia", null);
+            // OpenScene object = new OpenScene();
+            // Pane halaman = object.getPane("/JadwalKegiatan/UserJadwalKegiatan");
+            // mainPane.setCenter(halaman);
+        } else {
+            ShowAlert.showAlert("", "Silahkan login terlebih dahulu", "Untuk membuat akun, klik tombol Akun Saya");
+        }
+
     }
 
     @FXML
-    void keBeranda(ActionEvent event) {
-        if (VerifyLogin.getInstance().isVerifiedAdmin()) {
+    void keLaporanKegiatan(MouseEvent event) {
+        ShowAlert.showAlert(null, "Mohon Maaf, Fitur belum tersedia", null);
+        // OpenScene object = new OpenScene();
+        // Pane halaman = object.getPane("/View/LaporanKegiatan");
+        // mainPane.setCenter(halaman);
+    }
+
+    @FXML
+    void keBeranda(MouseEvent event) {
+        VerifyLogin ver = XMLctrl.getVerify();
+        if (ver.isVerifiedAdmin()) {
+            logout.setVisible(true);
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/Beranda");
             mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            logout.setVisible(true);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            mainPane.setCenter(halaman);
         } else {
+            logout.setVisible(false);
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/UserBeranda");
             mainPane.setCenter(halaman);
@@ -75,9 +155,23 @@ public class MainPaneCTRL implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        OpenScene object = new OpenScene();
-        Pane halaman = object.getPane("/View/Beranda");
-        mainPane.setCenter(halaman);
+        VerifyLogin ver = XMLctrl.getVerify();
+        if (ver.isVerifiedAdmin()) {
+            logout.setVisible(true);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/Beranda");
+            mainPane.setCenter(halaman);
+        } else if (ver.isVerifiedUser()) {
+            logout.setVisible(true);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            mainPane.setCenter(halaman);
+        } else {
+            logout.setVisible(false);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/UserBeranda");
+            mainPane.setCenter(halaman);
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -13,13 +14,16 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.SignUpCTRL">
    <children>
-      <VBox prefHeight="558.0" prefWidth="926.0" style="-fx-background-color: f5f5f5;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
+      <VBox prefHeight="558.0" prefWidth="926.0" style="-fx-background-color: #dceae4;" styleClass="backgroundNone" stylesheets="@../scrollpane.css">
          <children>
             <BorderPane prefHeight="558.0" prefWidth="926.0">
                <center>
                   <AnchorPane prefHeight="558.0" prefWidth="926.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="266.0" layoutY="52.0" prefHeight="455.0" prefWidth="395.0" style="-fx-background-color: ffffff; -fx-background-radius: 15;" />
+                        <AnchorPane layoutX="266.0" layoutY="31.0" prefHeight="496.0" prefWidth="395.0" style="-fx-background-color: ffffff; -fx-background-radius: 15;">
+                           <children>
+                              <Hyperlink layoutX="123.0" layoutY="448.0" onAction="#keLogin" text="Saya sudah punya Akun" />
+                           </children></AnchorPane>
                         <TextField fx:id="nameField" alignment="CENTER" layoutX="339.0" layoutY="217.0" prefHeight="35.0" prefWidth="250.0" promptText="Name" />
                         <TextField fx:id="emailField" alignment="CENTER" layoutX="339.0" layoutY="261.0" prefHeight="35.0" prefWidth="250.0" promptText="Email" />
                         <Button fx:id="SignUp" layoutX="339.0" layoutY="433.0" mnemonicParsing="false" onAction="#SignUpAddAccount" prefHeight="35.0" prefWidth="250.0" text="SignUp" />

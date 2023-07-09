@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Main.MainPaneCTRL;
 import Model.Account.Partisipan;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -63,5 +64,12 @@ public class SignUpCTRL {
         emailField.clear();
         passwordField.clear();
         confirmPasswordField.clear();
+    }
+
+    @FXML
+    void keLogin(ActionEvent event) {
+        OpenScene object = new OpenScene();
+        Pane halaman = object.getPane("/Login/Login");
+        MainPaneCTRL.getInstance().getMainPane().setCenter(halaman);
     }
 }

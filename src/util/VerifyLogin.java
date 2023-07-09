@@ -5,15 +5,15 @@ public class VerifyLogin {
     private boolean userVerified = false;
     private boolean adminVerified = false;
 
-    private static VerifyLogin instance = new VerifyLogin();
+    // private static VerifyLogin instance = new VerifyLogin();
 
-    public VerifyLogin() {
-        instance = this;
-    }
+    // public VerifyLogin() {
+    //     instance = this;
+    // }
 
-    public static VerifyLogin getInstance() {
-        return instance;
-    }
+    // public static VerifyLogin getInstance() {
+    //     return instance;
+    // }
 
     public boolean isVerifiedUser() {
         return userVerified;

@@ -66,13 +66,13 @@ public class FileManager {
             if (file.exists() && file.isFile()) {
                 boolean deleted = file.delete();
                 if (deleted) {
-                    System.out.println("File berhasil dihapus.");
+                    System.out.println("Gambar berhasil dihapus.");
                 } else {
-                    System.out.println("Gagal menghapus file.");
+                    System.out.println("Gagal menghapus Gambar.");
                 }
             }
         } else {
-            System.out.println("File sedang digunakan, tidak bisa menghapus file tersebut");
+            System.out.println("Gambar sedang digunakan, tidak bisa menghapus Gambar tersebut");
         }
     }
 

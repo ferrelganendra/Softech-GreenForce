@@ -1,20 +1,3 @@
-
-.modern-textfield {
-    -fx-background-color: #f2f2f2;
-    -fx-font-family: Arial, sans-serif;
-    -fx-font-size: 14px;
-    -fx-text-fill: #333;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 10px;
-    /* -fx-effect: dropshadow(rgba(0, 0, 0, 0.1), 0, 2, 0, 0); */
-    -fx-transition: background-color 0.3s, -fx-effect 0.3s;
-}
-
-.modern-textfield:focused {
-    -fx-background-color: #e6e6e6;
-    /* -fx-effect: dropshadow(rgba(0, 0, 0, 0.1), 0, 4, 0, 0); */
-}
-
 .button {
     -fx-background-color: linear-gradient(to right, #098c53, #246861);
     -fx-text-fill: rgb(255, 255, 255);
@@ -27,32 +10,41 @@
 }
 
 .hboxButton {
-    -fx-background-color: linear-gradient(to right, #098c53, #246861);
+    -fx-background-color: #ffffff;
     -fx-text-fill: rgb(255, 255, 255);
     -fx-background-radius: 5px;
+    -fx-effect: dropshadow(rgba(255, 255, 255, 0.5), 0, 2, 0, 0);
 }
 
 .hboxButton:hover {
-    -fx-background-color: #18a065;
+    -fx-background-color: #c5ffe6;
     -fx-text-fill: rgb(255, 255, 255);
     -fx-font-size: 13px;
 }
 
+.bordered-hbox {
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+.bordered-hbox:hover {
+    -fx-border-color: linear-gradient(to right, #098c53, #246861);
+    -fx-text-fill: linear-gradient(to right, #098c53, #246861);
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
 .vbox {
     -fx-spacing: 10px;
-    -fx-padding: 10px;
+    -fx-padding: 7px;
     -fx-background-color: #ffffff;
-    /* -fx-border-color: rgb(142, 142, 142);
-    -fx-border-width: 0 1 0 0px; */
 }
 
 .borderpane {
     -fx-background-color: #f5f5f5;
 }
 
-.hboxMain {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.076), 0, 10, 0, 1);
-}
 
 .hboxAcc {
     -fx-background-color: linear-gradient(to right, #098c53, #246861);
@@ -71,7 +63,13 @@
     -fx-font-size: 18px;
 }
 
-.scrolli-pane {
-    -fx-background-radius: 5px;
-
+.tombolMenu {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 15px;
 }
+
+.tombolMenu:hover {
+    -fx-background-color: #f5f5f5;
+    -fx-border-radius: 15px;
+}
+

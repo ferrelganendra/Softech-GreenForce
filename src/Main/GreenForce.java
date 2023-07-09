@@ -16,7 +16,6 @@ public class GreenForce extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Main/MainPane.fxml"));
-
         Scene scene = new Scene(root);
         stage.setTitle("GreenForce");
         stage.setResizable(false);

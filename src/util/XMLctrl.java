@@ -93,6 +93,7 @@ public class XMLctrl {
         return greenForce;
     }
 
+    //Data AllList Artikel, Berita, Jadwal, Laporan {
     @SuppressWarnings("unchecked")
     public static ArrayList<Artikel> getArtikel() {
         ArrayList<Artikel> artikelGreenForce = new ArrayList<>();
@@ -272,7 +273,9 @@ public class XMLctrl {
             }
         }
     }
+    // }
 
+    //Data Account {
     @SuppressWarnings("unchecked")
     public static ArrayList<Partisipan> getUser() {
         ArrayList<Partisipan> partisipanArrayList = new ArrayList<>();
@@ -340,7 +343,9 @@ public class XMLctrl {
         }
         return partisipanArrayList;
     }
+    // }
 
+    //Data untuk mengecek akun mana yang login {
     public static void saveCurrentAccount(Akun user) {
         XStream xstream = new XStream(new StaxDriver());
         String xmlUser = xstream.toXML(user);
@@ -362,15 +367,14 @@ public class XMLctrl {
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public static ArrayList<?> getCurrentAccount() {
-        ArrayList<?> current = new ArrayList<>();
+    public static Akun getCurrentAccount() {
+        Akun current = new Akun(null, null, null);
         XStream xstream = new XStream(new StaxDriver());
         xstream.addPermission(AnyTypePermission.ANY);
         FileInputStream userInput = null;
         try {
             userInput = new FileInputStream("src\\DataBase\\CurrentAccount.xml");
-            current = (ArrayList<Komunitas>) xstream.fromXML(userInput);
+            current = (Akun) xstream.fromXML(userInput);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -413,7 +417,7 @@ public class XMLctrl {
         FileOutputStream coba = null;
 
         try {
-            coba = new FileOutputStream("src\\DataBase\\UserData.xml");
+            coba = new FileOutputStream("src\\DataBase\\Verify.xml");
             byte[] bytes = xmlUser.getBytes("UTF-8");
             coba.write(bytes);
         } catch (Exception e) {
@@ -428,5 +432,6 @@ public class XMLctrl {
             }
         }
     }
+    // }
 
 }
