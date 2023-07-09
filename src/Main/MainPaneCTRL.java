@@ -102,7 +102,7 @@ public class MainPaneCTRL implements Initializable {
     }
 
     @FXML
-    void keLaporanKegiatan(ActionEvent event) {
+    void keLaporanKegiatan(MouseEvent event) {
         OpenScene object = new OpenScene();
         Pane halaman = object.getPane("/View/LaporanKegiatan");
         mainPane.setCenter(halaman);
@@ -111,14 +111,17 @@ public class MainPaneCTRL implements Initializable {
     @FXML
     void keBeranda(MouseEvent event) {
         if (ver.isVerifiedAdmin()) {
+            logout.setVisible(true);
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/Beranda");
             mainPane.setCenter(halaman);
         } else if (ver.isVerifiedUser()) {
+            logout.setVisible(true);
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/UserBeranda");
             mainPane.setCenter(halaman);
         } else {
+            logout.setVisible(false);
             OpenScene object = new OpenScene();
             Pane halaman = object.getPane("/View/UserBeranda");
             mainPane.setCenter(halaman);

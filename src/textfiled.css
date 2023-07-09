@@ -6,3 +6,10 @@
 .text-field:focused {
     -fx-background-color: -fx-focus-color, -fx-background ;
 }
+
+.textarea {
+    -fx-focus-color: transparent;
+    -fx-border-style: none;
+    -fx-background-radius: 0.0px;
+    -fx-border-radius: 0.0px;
+}

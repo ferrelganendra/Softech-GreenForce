@@ -69,7 +69,7 @@
                               <Insets bottom="7.0" left="10.0" top="7.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="28.0" onMouseClicked="#hapusArtikel" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="28.0" fitWidth="28.0" onMouseClicked="#addArtikel" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Resource/Icon/icons8-add-48.png" />
                                  </image>
@@ -145,7 +145,7 @@
                               <Insets bottom="7.0" left="10.0" top="7.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="28.0" onMouseClicked="#hapusArtikel" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="28.0" fitWidth="28.0" onMouseClicked="#addBerita" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Resource/Icon/icons8-add-48.png" />
                                  </image>

@@ -9,7 +9,6 @@ import Home.Artikel.ACardCTRL;
 import Home.Artikel.ArtikelEditCTRL;
 import Home.Berita.BCard;
 import Home.Berita.BeritaEdit;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;

@@ -215,7 +215,7 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="522.0" prefWidth="879.0" style="-fx-background-color: f9f9f9;" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="522.0" prefWidth="879.0" style="-fx-background-color: #dceae4;" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox prefHeight="11.0" prefWidth="1080.0" style="-fx-background-color: ffffff;" BorderPane.alignment="CENTER" />

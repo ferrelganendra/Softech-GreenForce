@@ -10,7 +10,6 @@
 }
 
 .hboxButton {
-    /* -fx-background-color: linear-gradient(to right, #098c53, #246861); */
     -fx-background-color: #ffffff;
     -fx-text-fill: rgb(255, 255, 255);
     -fx-background-radius: 5px;
@@ -40,8 +39,6 @@
     -fx-spacing: 10px;
     -fx-padding: 7px;
     -fx-background-color: #ffffff;
-    /* -fx-border-color: rgb(142, 142, 142);
-    -fx-border-width: 0 1 0 0px; */
 }
 
 .borderpane {
