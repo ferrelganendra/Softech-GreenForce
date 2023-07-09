@@ -67,7 +67,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER_LEFT" onMouseClicked="#keBeranda" prefHeight="39.0" prefWidth="154.0" style="-fx-background-radius: 15;" styleClass="tombolMenu">
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#keLaporanKegiatan" prefHeight="39.0" prefWidth="154.0" style="-fx-background-radius: 15;" styleClass="tombolMenu">
                <children>
                   <ImageView fitHeight="21.0" fitWidth="21.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -89,7 +89,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="43.0" prefWidth="140.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="Ajukan Aksi" />
+                  <Button mnemonicParsing="false" onAction="#AjukanAksi" prefHeight="30.0" prefWidth="107.0" text="Ajukan Aksi" />
                </children>
             </HBox>
             <Separator prefWidth="200.0">
@@ -97,7 +97,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Separator>
-            <HBox alignment="CENTER_LEFT" onMouseClicked="#keBeranda" prefHeight="39.0" prefWidth="154.0" style="-fx-background-radius: 15;" styleClass="tombolMenu">
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#keDonasi" prefHeight="39.0" prefWidth="154.0" style="-fx-background-radius: 15;" styleClass="tombolMenu">
                <children>
                   <ImageView fitHeight="21.0" fitWidth="21.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                      <image>
