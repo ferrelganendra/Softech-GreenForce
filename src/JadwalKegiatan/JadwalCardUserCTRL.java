@@ -9,11 +9,11 @@ import javafx.scene.text.Text;
 import Model.Kegiatan.JadwalKegiatan;
 
 public class JadwalCardUserCTRL {
-    // @FXML
-    // private Button Join;
+    @FXML
+    private Button Join;
 
-    // @FXML
-    // private Button Detail;
+    @FXML
+    private Button Detail;
 
     @FXML
     private Button Edit;
@@ -40,12 +40,20 @@ public class JadwalCardUserCTRL {
     private Text tujuan;
 
 
-    public Button getEdit() {
-        return Edit;
+    public Button getJoin() {
+        return Join;
     }
 
-    public void setEdit(Button edit) {
-        Edit = edit;
+    public void setJoin(Button join) {
+        Join = join;
+    }
+
+    public Button getDetail() {
+        return Detail;
+    }
+
+    public void setDetail(Button detail) {
+        Detail = detail;
     }
 
     public ImageView getImage() {

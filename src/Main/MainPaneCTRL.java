@@ -114,14 +114,16 @@ public class MainPaneCTRL implements Initializable {
             Pane halaman = object.getPane("/View/JadwalKegiatan");
             mainPane.setCenter(halaman);
         } else if (ver.isVerifiedUser()) {
-            ShowAlert.showAlert(null, "Mohon Maaf, Fitur belum tersedia", null);
-            // OpenScene object = new OpenScene();
-            // Pane halaman = object.getPane("/JadwalKegiatan/UserJadwalKegiatan");
-            // mainPane.setCenter(halaman);
+            logout.setVisible(true);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/JadwalKegiatanUser");
+            mainPane.setCenter(halaman);
         } else {
-            ShowAlert.showAlert("", "Silahkan login terlebih dahulu", "Untuk membuat akun, klik tombol Akun Saya");
+            logout.setVisible(false);
+            OpenScene object = new OpenScene();
+            Pane halaman = object.getPane("/View/JadwalKegiatanUser");
+            mainPane.setCenter(halaman);
         }
-
     }
 
     @FXML
